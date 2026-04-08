@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation — Sonic L1</title>
-  <meta name="description" content="Comprehensive Sonic L1 documentation: architecture, FeeM, SonicVM, SonicDB, API reference, and developer quick-start guides.">
+  <title>Documentation — Astar Network</title>
+  <meta name="description" content="Astar Network documentation: architecture, Substrate runtime, Frontier EVM, ink! WASM contracts, dApp Staking Build2Earn, and XCM cross-chain guides.">
   <link rel="stylesheet" href="1de98341b7e33ab1.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="sonic-page">
+<body class="astar-page">
 
-<nav class="sonic-nav" aria-label="Main navigation">
-  <div class="sonic-nav__inner">
-    <a href="index.html" class="sonic-nav__logo">
-      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
-      Sonic L1
+<nav class="astar-nav" aria-label="Primary navigation">
+  <div class="astar-nav__inner">
+    <a href="index.html" class="astar-nav__logo">
+      <span class="astar-nav__logo-icon">✦</span>
+      Astar Network
     </a>
-    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-    <ul class="sonic-nav__links" id="navLinks" role="list">
+    <button class="astar-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="astar-nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="documentation.html" class="active">Documentation</a></li>
       <li><a href="explorer.html">Explorer</a></li>
-      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="development-tools.html">Dev Tools</a></li>
       <li><a href="testnet.html">Testnet</a></li>
       <li><a href="mainnet.html">Mainnet</a></li>
       <li><a href="node.html">Node</a></li>
@@ -29,318 +29,312 @@
   </div>
 </nav>
 
-<main class="sonic-main">
+<main class="astar-main">
 
   <!-- Hero -->
-  <section class="sonic-hero">
-    <div class="sonic-hero__inner">
-      <div class="sonic-hero__badge">📚 Documentation</div>
-      <h1 class="sonic-hero__title">Sonic L1 <span class="highlight">Documentation Hub</span></h1>
-      <p class="sonic-hero__desc">Everything you need to understand and build on Sonic — the highest-performing EVM Layer-1 blockchain. From architecture deep-dives to practical quick-start guides.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#getting-started" class="btn btn-primary">Quick Start →</a>
-        <a href="development-tools.html" class="btn btn-outline">Dev Tools</a>
+  <section class="astar-hero">
+    <div class="astar-hero__inner">
+      <div class="astar-hero__badge">✦ Technical Reference</div>
+      <h1 class="astar-hero__title"><span class="highlight">Astar Network</span> Documentation Hub</h1>
+      <p class="astar-hero__desc">
+        Comprehensive technical documentation for building on Astar Network — Polkadot's multichain smart contract platform. Covers architecture, dual VM environments, dApp Staking, XCM messaging, and the full developer lifecycle from testnet to production.
+      </p>
+      <div class="flex flex-wrap gap-1">
+        <a href="development-tools.html" class="btn btn-primary">Dev Tools</a>
+        <a href="testnet.html" class="btn btn-outline">Shibuya Testnet</a>
       </div>
-      <div class="sonic-hero__stats">
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">400K</span>
-          <span class="sonic-hero__stat-label">TPS</span>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="astar-section" id="introduction">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Introduction</span>
+        <h2 class="astar-section__title">Introduction to Astar Network</h2>
+        <p class="astar-section__subtitle">Understand what Astar is, how it fits into the Polkadot ecosystem, and what makes it uniquely powerful for dApp developers.</p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <div class="info-box">
+            <div class="info-box__title">Polkadot Parachain</div>
+            <p class="mb-0">Astar operates as a parachain on Polkadot, connecting to the relay chain via a parachain slot. It inherits Polkadot's pooled security without requiring its own validator set. Collators produce parachain blocks and submit them to the relay chain for finalization by Polkadot validators.</p>
+          </div>
+          <div class="info-box info-box--pink">
+            <div class="info-box__title">Dual VM: EVM via Frontier + WASM via ink!</div>
+            <p class="mb-0">Astar integrates Frontier — a Substrate-compatible EVM implementation — allowing unmodified Solidity/EVM bytecode to run natively. Alongside this, the <code>pallet-contracts</code> module enables WebAssembly smart contracts written in ink!, a Rust-based eDSL. Both VMs share the same address space and can interoperate through precompiles.</p>
+          </div>
         </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">&lt;1s</span>
-          <span class="sonic-hero__stat-label">Finality</span>
-        </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">90%</span>
-          <span class="sonic-hero__stat-label">Fee Rebate</span>
-        </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">96%</span>
-          <span class="sonic-hero__stat-label">Storage Savings</span>
+        <div>
+          <div class="info-box info-box--green">
+            <div class="info-box__title">dApp Staking (Build2Earn)</div>
+            <p class="mb-0">Astar's signature feature: developers register their dApps on-chain. ASTR token holders stake on their favourite projects. At every block, staking rewards are distributed — up to 50% going to dApp developers. This creates a sustainable funding mechanism for open-source dApp developers independent of VC funding or token sales.</p>
+          </div>
+          <div class="info-box info-box--purple">
+            <div class="info-box__title">Agile Coretime (Polkadot 2.0)</div>
+            <p class="mb-0">With Polkadot 2.0, Astar participates in Agile Coretime — a more flexible resource allocation model replacing fixed parachain slot auctions. Coretime can be purchased on-demand or in bulk, enabling more cost-efficient block production and opening the door to more parachain teams joining the ecosystem.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 1: Introduction -->
-  <section class="sonic-section" id="introduction">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Overview</span>
-        <h2 class="sonic-section__title">Introduction to Sonic L1</h2>
-        <p class="sonic-section__subtitle">The highest-performing EVM-compatible Layer-1 blockchain, purpose-built for next-generation decentralized finance.</p>
+  <!-- Architecture -->
+  <section class="astar-section" id="architecture">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Architecture</span>
+        <h2 class="astar-section__title">Astar Architecture</h2>
+        <p class="astar-section__subtitle">Built on Substrate with Polkadot's security model, Astar's runtime combines multiple pallets to deliver a feature-rich multichain environment.</p>
       </div>
 
-      <p>Sonic is a groundbreaking Layer-1 blockchain that represents the natural evolution of the Fantom network. Built from first principles to overcome the throughput limitations that have long plagued smart-contract platforms, Sonic delivers a combination of extreme performance and full Ethereum Virtual Machine (EVM) compatibility that no other network has achieved at this scale.</p>
-
-      <p>At its core, Sonic is designed around a single philosophy: developers and users deserve a blockchain that is as fast, cheap, and reliable as the best centralized systems — without sacrificing decentralization or security. This translates into a network capable of processing up to <strong>400,000 transactions per second</strong>, achieving finality in under one second, and offering developers a familiar EVM environment where existing Solidity contracts can be deployed without modification.</p>
-
-      <div class="grid-3" style="margin:2rem 0;">
-        <div class="sonic-card">
-          <div class="sonic-card__icon">⚡</div>
-          <div class="sonic-card__title">400,000 TPS</div>
-          <div class="sonic-card__desc">Sonic's peak throughput capacity dwarfs competing L1s. The network is benchmarked at 10,000 verifiable TPS in real-world conditions with standard validator hardware, giving applications the headroom to scale without network congestion.</div>
+      <div class="grid-2 mb-4">
+        <div class="astar-card">
+          <div class="astar-card__icon">⚙️</div>
+          <h3 class="astar-card__title">Substrate + Frontier EVM</h3>
+          <p class="astar-card__desc">The Astar runtime is built with FRAME pallets on Substrate. Frontier adds an Ethereum-compatible JSON-RPC layer and maps EVM accounts to Substrate accounts, allowing MetaMask and Hardhat to work without modification. Gas is denominated in ASTR.</p>
         </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🎯</div>
-          <div class="sonic-card__title">Sub-Second Finality</div>
-          <div class="sonic-card__desc">Transactions on Sonic are final in under one second. Unlike probabilistic finality systems that require many block confirmations, Sonic's Lachesis aBFT consensus achieves deterministic finality immediately after the consensus round completes.</div>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--cyan">📜</div>
+          <h3 class="astar-card__title">WASM via ink! Contracts</h3>
+          <p class="astar-card__desc">ink! is a Rust-based embedded domain-specific language for writing smart contracts compiled to WASM. Contracts are uploaded as WASM blobs and executed in a sandboxed environment with resource metering. ink! contracts can call EVM precompiles and vice versa.</p>
         </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🔧</div>
-          <div class="sonic-card__title">Full EVM Compatibility</div>
-          <div class="sonic-card__desc">Every Ethereum tool — Hardhat, Foundry, Remix, MetaMask, ethers.js, web3.js, viem — works on Sonic without modification. Deploy existing contracts directly to Sonic mainnet (Chain ID 146) with zero code changes required.</div>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--green">🛡️</div>
+          <h3 class="astar-card__title">NPoS Consensus</h3>
+          <p class="astar-card__desc">Astar uses Polkadot's Nominated Proof-of-Stake for block finalization. Collators produce candidate blocks; Polkadot's validators finalize them. This means Astar has economic finality backed by DOT staking — significantly stronger security than standalone PoS chains.</p>
         </div>
-      </div>
-
-      <p>The developer-first design philosophy permeates every aspect of Sonic. From the Innovator Fund's 200 million S token allocation for ecosystem grants, to the FeeM system that lets builders monetize their on-chain activity, Sonic positions itself as the preferred home for serious DeFi projects seeking to offer users a premium experience without prohibitive gas costs.</p>
-
-      <div class="info-box">
-        <div class="info-box__title">📌 Key Facts</div>
-        <p style="margin:0;">Sonic was launched as a successor to Fantom Opera. It maintains full state and account continuity for projects that migrated, while introducing an entirely new execution engine, storage layer, and incentive model. The native token is <strong>S</strong>, which is used for gas fees, staking, and governance.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Architecture -->
-  <section class="sonic-section" id="architecture">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Technical Deep-Dive</span>
-        <h2 class="sonic-section__title">Architecture Overview</h2>
-        <p class="sonic-section__subtitle">Three core innovations — SonicVM, SonicDB, and Lachesis aBFT — work together to deliver unprecedented performance.</p>
-      </div>
-
-      <div class="grid-2" style="margin-bottom:2rem;">
-        <div>
-          <h3>🖥️ SonicVM — Optimized Execution Engine</h3>
-          <p>SonicVM is Sonic's custom-built virtual machine designed to execute EVM bytecode significantly faster than the reference Ethereum implementation. It introduces <strong>super instructions</strong> — composite opcodes that combine multiple common EVM operations into a single, highly-optimized execution step. This eliminates the interpreter overhead associated with sequential opcode dispatch.</p>
-          <p>Super instructions work by profiling common opcode sequences across real-world smart contracts and compiling them into native machine code paths. The result is that complex DeFi operations — such as AMM swaps, lending calculations, and NFT transfers — execute in a fraction of the time they would take on a standard EVM. SonicVM remains fully backward-compatible: every valid EVM bytecode sequence produces the same output as it would on Ethereum, ensuring correctness and portability.</p>
-          <p>Developers do not need to write any special code to benefit from SonicVM. Existing Solidity or Vyper contracts compiled with standard toolchains automatically take advantage of the optimized execution paths when deployed to Sonic.</p>
-        </div>
-        <div>
-          <h3>🗄️ SonicDB — Efficient State Storage</h3>
-          <p>SonicDB is Sonic's redesigned state storage layer that achieves a <strong>96% reduction in node operating costs</strong> compared to traditional blockchain node implementations. This dramatic improvement comes from a fundamental rethinking of how blockchain state is stored, indexed, and accessed on disk.</p>
-          <p>Traditional EVM nodes store the entire Merkle Patricia Trie (MPT) state history, which grows unboundedly over time and requires significant IOPS for state access. SonicDB replaces this with a purpose-built columnar storage format optimized for the access patterns of a live blockchain node. Frequently accessed state — current account balances, contract storage — is kept in fast-path caches, while historical state is archived efficiently.</p>
-          <p>The practical result for node operators is dramatically lower hardware requirements: SonicDB nodes can run comfortably on consumer-grade SSDs without the enterprise NVMe arrays required by comparable Ethereum archive nodes. This democratizes participation in the Sonic network and improves its decentralization.</p>
-          <div class="badge badge-green" style="display:inline-flex;margin-top:.5rem;">96% storage cost reduction</div>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--pink">⚡</div>
+          <h3 class="astar-card__title">Asynchronous Backing</h3>
+          <p class="astar-card__desc">Polkadot's Asynchronous Backing upgrade enables ~6s block production (down from ~12s) by pipelining block authoring and relay chain inclusion. Astar benefits from higher throughput and lower latency without changes to the application layer.</p>
         </div>
       </div>
 
-      <h3>🔗 Lachesis aBFT Consensus</h3>
-      <p>Sonic inherits and refines the Lachesis asynchronous Byzantine Fault Tolerant (aBFT) consensus protocol from Fantom. Lachesis is a DAG-based (Directed Acyclic Graph) consensus mechanism that allows validators to create and gossip event blocks asynchronously, without the need for a designated leader or synchronous round timers.</p>
-      <p>In practical terms, aBFT means the network can reach consensus and finalize transactions even when some validators are offline or behave maliciously, as long as at least two-thirds of validators (by staked weight) are honest and responsive. Unlike traditional BFT protocols that are sensitive to network delays, Lachesis's asynchronous design allows it to operate efficiently across geographically distributed validator sets with varying latencies.</p>
-
+      <h3>Runtime Modules (Key Pallets)</h3>
       <div class="spec-grid">
         <div class="spec-item">
-          <div class="spec-item__label">Consensus Type</div>
-          <div class="spec-item__value">Lachesis aBFT</div>
+          <div class="spec-item__label">EVM</div>
+          <div class="spec-item__value">pallet-evm</div>
         </div>
         <div class="spec-item">
-          <div class="spec-item__label">Fault Tolerance</div>
-          <div class="spec-item__value spec-item__value--blue">&lt;1/3 validators</div>
+          <div class="spec-item__label">Ethereum RPC</div>
+          <div class="spec-item__value">pallet-ethereum</div>
         </div>
         <div class="spec-item">
-          <div class="spec-item__label">Finality Type</div>
-          <div class="spec-item__value">Deterministic</div>
+          <div class="spec-item__label">WASM Contracts</div>
+          <div class="spec-item__value">pallet-contracts</div>
         </div>
         <div class="spec-item">
-          <div class="spec-item__label">Finality Time</div>
-          <div class="spec-item__value spec-item__value--orange">&lt;1 second</div>
+          <div class="spec-item__label">dApp Staking</div>
+          <div class="spec-item__value">pallet-dapp-staking</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">XCM</div>
+          <div class="spec-item__value">pallet-xcm</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Assets</div>
+          <div class="spec-item__value">pallet-assets</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: FeeM -->
-  <section class="sonic-section" id="feem">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Incentive Model</span>
-        <h2 class="sonic-section__title">FeeM — Fee Monetization</h2>
-        <p class="sonic-section__subtitle">A revolutionary revenue model that lets developers earn up to 90% of the transaction fees generated by their dApps.</p>
+  <!-- dApp Staking -->
+  <section class="astar-section" id="dapp-staking">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Build2Earn</span>
+        <h2 class="astar-section__title">dApp Staking (Build2Earn)</h2>
+        <p class="astar-section__subtitle">Astar's flagship economic innovation — a protocol-level funding mechanism that turns staking into developer income.</p>
       </div>
 
-      <p>Fee Monetization (FeeM) is one of Sonic's most distinctive features and a fundamental departure from how all other EVM-compatible blockchains handle transaction fee distribution. On Ethereum and most competing L1s, 100% of the base fee is either burned (EIP-1559) or distributed to validators — application developers receive nothing from the on-chain activity they drive.</p>
-
-      <p>Sonic's FeeM system changes this equation entirely. When a user submits a transaction that interacts with a registered dApp contract, up to <strong>90% of the gas fees</strong> paid for that transaction are rebated directly to the contract developer's registered address. The remaining portion goes to validators, ensuring network security remains well-funded. This creates a sustainable, Web2-like recurring revenue model for Web3 application developers.</p>
-
-      <div class="grid-2" style="margin:1.5rem 0;">
-        <div class="info-box info-box--orange">
-          <div class="info-box__title">💰 How FeeM Works</div>
-          <p style="margin:0;">Register your deployed contract address on Sonic's FeeM portal. Once registered, all gas fees generated by interactions with your contract are split: 90% is returned to your registered wallet in S tokens, and 10% goes to validators. Payouts are automatic and occur on-chain.</p>
+      <div class="grid-2 mb-4">
+        <div>
+          <h3>How It Works</h3>
+          <ol class="step-list">
+            <li>
+              <div class="step-content">
+                <h4>Developer Registers dApp</h4>
+                <p>Any developer can register a deployed smart contract address (EVM or WASM) on-chain via the dApp Staking pallet. Registration requires a small deposit and community approval.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Stakers Nominate</h4>
+                <p>ASTR token holders stake their tokens on one or more registered dApps. Staked tokens remain liquid (no unbonding cliff) and earn staking APY for the staker while simultaneously supporting the dApp.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Rewards Distributed</h4>
+                <p>At each block, a portion of block rewards is split: ~50% goes to dApp developers (proportional to total stake on their dApp), and the remainder goes to stakers as staking APY. Rewards are claimable on-demand.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <div class="info-box info-box--green">
-          <div class="info-box__title">📈 Aligned Incentives</div>
-          <p style="margin:0;">FeeM directly aligns the incentives of developers, users, and the network. Developers are incentivized to attract high-volume usage because more transactions mean more revenue. Users benefit because popular, revenue-generating dApps can afford to subsidize gas or invest in better UX.</p>
+        <div>
+          <div class="info-box info-box--green">
+            <div class="info-box__title">Reward Breakdown</div>
+            <p>Block rewards are allocated across three buckets:</p>
+            <ul>
+              <li><strong>dApp Developers:</strong> up to 50% of block rewards, split by staked weight</li>
+              <li><strong>Stakers:</strong> base staking APY, encouraging participation</li>
+              <li><strong>Collators:</strong> small collator reward for block production</li>
+            </ul>
+            <p class="mb-0">Exact percentages are governed by on-chain parameters and can be adjusted via governance.</p>
+          </div>
+          <div class="info-box mt-2">
+            <div class="info-box__title">dApp Staking v3</div>
+            <p class="mb-0">dApp Staking v3 introduces tiered reward structures, hybrid staking periods, and improved governance controls. Developers can track their tier status and estimated APY in real-time via the Astar Portal dashboard at <a href="https://portal.astar.network" target="_blank">portal.astar.network</a>.</p>
+          </div>
         </div>
       </div>
-
-      <p>The FeeM model makes Sonic uniquely positioned for DeFi protocols, DEXs, and high-volume applications. A DEX processing 1,000,000 swaps per month at 0.1 gwei average gas cost earns substantial S token revenue purely from existing user activity — no token sale, no VC funding required to sustain operations. This is the sustainable economics that Web3 has been missing.</p>
-
-      <p>Registration for FeeM is permissionless and on-chain. Any developer who has deployed a smart contract to Sonic mainnet can register for FeeM. Once registered, fee rebates begin immediately on the next qualifying transaction. There is no minimum contract size, no whitelist, and no approval process — FeeM is available to every builder on Sonic equally.</p>
     </div>
   </section>
 
-  <!-- Section 4: Getting Started -->
-  <section class="sonic-section" id="getting-started">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Quick Start</span>
-        <h2 class="sonic-section__title">Getting Started with Sonic</h2>
-        <p class="sonic-section__subtitle">Connect to Sonic, configure your development environment, and deploy your first contract in minutes.</p>
+  <!-- Getting Started -->
+  <section class="astar-section" id="quickstart">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Quick Start</span>
+        <h2 class="astar-section__title">Getting Started</h2>
+        <p class="astar-section__subtitle">Configure your environment and deploy your first contract on Astar in minutes.</p>
       </div>
 
-      <h3>Network Configuration</h3>
-      <div class="spec-grid" style="margin-bottom:1.5rem;">
-        <div class="spec-item">
-          <div class="spec-item__label">Network Name</div>
-          <div class="spec-item__value">Sonic Mainnet</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Chain ID</div>
-          <div class="spec-item__value spec-item__value--blue">146</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Native Token</div>
-          <div class="spec-item__value spec-item__value--orange">S</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Block Time</div>
-          <div class="spec-item__value">~1 second</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">RPC (HTTP)</div>
-          <div class="spec-item__value" style="font-size:.8rem;">rpc.soniclabs.com</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Testnet Chain ID</div>
-          <div class="spec-item__value spec-item__value--blue">64165</div>
-        </div>
-      </div>
+      <div class="grid-2">
+        <div>
+          <h3>Network Configuration</h3>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-item__label">Network Name</div>
+              <div class="spec-item__value">Astar</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Chain ID</div>
+              <div class="spec-item__value spec-item__value--blue">592</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Currency Symbol</div>
+              <div class="spec-item__value">ASTR</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Block Explorer</div>
+              <div class="spec-item__value" style="font-size:0.78rem">astar.subscan.io</div>
+            </div>
+          </div>
+          <p>EVM RPC: <code>https://evm.astar.network</code></p>
+          <p>Substrate RPC: <code>wss://rpc.astar.network</code></p>
 
-      <h3>Connecting with ethers.js v6</h3>
-      <pre><code>import { ethers } from "ethers";
+          <h3 class="mt-3">ethers.js Example</h3>
+          <pre><code>import { ethers } from "ethers";
 
-// Connect to Sonic mainnet
-const provider = new ethers.JsonRpcProvider("https://rpc.soniclabs.com");
+const provider = new ethers.JsonRpcProvider(
+  "https://evm.astar.network"
+);
 
-// Check chain ID
+// Check chain ID (should be 592n)
 const network = await provider.getNetwork();
-console.log("Chain ID:", network.chainId); // 146n
+console.log("Chain ID:", network.chainId);
 
-// Query latest block
-const block = await provider.getBlockNumber();
-console.log("Latest block:", block);
+// Get latest block
+const block = await provider.getBlock("latest");
+console.log("Block:", block.number);</code></pre>
+        </div>
+        <div>
+          <h3>@polkadot/api Example</h3>
+          <pre><code>import { ApiPromise, WsProvider } from "@polkadot/api";
 
-// Check S token balance
-const balance = await provider.getBalance("0xYourAddress");
-console.log("Balance:", ethers.formatEther(balance), "S");</code></pre>
+async function connect() {
+  const provider = new WsProvider(
+    "wss://rpc.astar.network"
+  );
+  const api = await ApiPromise.create({ provider });
 
-      <h3>Connecting with web3.js</h3>
-      <pre><code>import Web3 from "web3";
+  // Get runtime version
+  const version = api.runtimeVersion;
+  console.log("Runtime:", version.specName.toString());
 
-const web3 = new Web3("https://rpc.soniclabs.com");
+  // Query dApp staking info
+  const era = await api.query.dappStaking.currentEra();
+  console.log("Current era:", era.toString());
 
-// Verify connection
-const chainId = await web3.eth.getChainId();
-console.log("Chain ID:", chainId); // 146
+  return api;
+}
 
-// Get gas price
-const gasPrice = await web3.eth.getGasPrice();
-console.log("Gas price (wei):", gasPrice);</code></pre>
+connect();</code></pre>
 
-      <ol class="step-list" style="margin-top:1.5rem;">
-        <li>
-          <div class="step-content">
-            <h4>Install dependencies</h4>
-            <p>Run <code>npm install ethers</code> or <code>npm install web3</code> in your project directory. Both libraries work identically on Sonic as on Ethereum.</p>
+          <div class="info-box info-box--pink mt-2">
+            <div class="info-box__title">Substrate ↔ EVM Accounts</div>
+            <p class="mb-0">Astar uses a unified account model. An Ethereum address (H160) maps deterministically to a Substrate address (SS58) and vice versa. The <code>unified-accounts</code> pallet enables this mapping, so the same private key controls both account types.</p>
           </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Add Sonic to MetaMask</h4>
-            <p>Open MetaMask → Settings → Networks → Add Network. Enter Chain ID <code>146</code>, RPC URL <code>https://rpc.soniclabs.com</code>, and symbol <code>S</code>.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Get test tokens</h4>
-            <p>Use the Blaze Testnet (Chain ID <code>64165</code>) and the Sonic faucet to obtain test S tokens for development. See the <a href="testnet.html">Testnet page</a> for instructions.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Deploy your contract</h4>
-            <p>Configure Hardhat or Foundry with the Sonic RPC endpoint. Compile and deploy as you would on any EVM-compatible network. See <a href="development-tools.html">Development Tools</a> for full configuration examples.</p>
-          </div>
-        </li>
-      </ol>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="sonic-footer">
-  <div class="sonic-footer__grid">
-    <div class="sonic-footer__brand">
-      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
-      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-        <span class="badge badge-blue">Chain ID: 146</span>
-        <span class="badge badge-orange">400K TPS</span>
-        <span class="badge badge-green">EVM Compatible</span>
+<footer class="astar-footer">
+  <div class="astar-footer__grid">
+    <div class="astar-footer__brand">
+      <h3>✦ Astar Network</h3>
+      <p>Multichain smart contract hub on Polkadot. Dual EVM + WASM, dApp Staking, and cross-chain interoperability via XCM.</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="badge badge-blue">Chain ID: 592</span>
+        <span class="badge badge-purple">Dual VM</span>
+        <span class="badge badge-cyan">Polkadot</span>
       </div>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Network</h4>
       <ul>
         <li><a href="mainnet.html">Mainnet</a></li>
-        <li><a href="testnet.html">Blaze Testnet</a></li>
-        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="testnet.html">Shibuya Testnet</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
         <li><a href="node.html">Run a Node</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Developers</h4>
       <ul>
         <li><a href="documentation.html">Documentation</a></li>
         <li><a href="development-tools.html">Dev Tools</a></li>
         <li><a href="testnet.html">Testnet Faucet</a></li>
-        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+        <li><a href="documentation.html#quickstart">Quick Start</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
-        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
-        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://astar.network" target="_blank">astar.network</a></li>
+        <li><a href="https://github.com/AstarNetwork" target="_blank">GitHub</a></li>
+        <li><a href="https://discord.gg/astarnetwork" target="_blank">Discord</a></li>
+        <li><a href="https://twitter.com/AstarNetwork" target="_blank">Twitter / X</a></li>
       </ul>
     </div>
   </div>
-  <div class="sonic-footer__bottom">
-    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
-    <div class="sonic-footer__chips">
-      <span class="sonic-footer__chip">Mainnet: 146</span>
-      <span class="sonic-footer__chip">Testnet: 64165</span>
-      <span class="sonic-footer__chip">TPS: 400K</span>
+  <div class="astar-footer__bottom">
+    <p>© 2025 Astar Network. Built on Substrate, secured by Polkadot.</p>
+    <div class="astar-footer__chips">
+      <span class="astar-footer__chip">Mainnet: 592</span>
+      <span class="astar-footer__chip">Testnet: 81</span>
+      <span class="astar-footer__chip">Shiden: 336</span>
     </div>
   </div>
 </footer>
 
 <script>
-  (function(){
-    var btn = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if(btn && links){
-      btn.addEventListener('click', function(){
-        var open = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  })();
+  const btn = document.querySelector('.astar-nav__hamburger');
+  const links = document.querySelector('.astar-nav__links');
+  if (btn && links) {
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  }
 </script>
 </body>
 </html>

@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blaze Testnet — Sonic L1</title>
-  <meta name="description" content="Sonic Blaze Testnet guide: connect to Chain ID 64165, obtain test S tokens, deploy and test smart contracts before mainnet launch.">
+  <title>Shibuya Testnet — Astar Network</title>
+  <meta name="description" content="Astar Shibuya Testnet guide: Chain ID 81, SBY tokens, EVM RPC, MetaMask setup, faucet, and testing pipeline from Shibuya to Shiden to Astar Mainnet.">
   <link rel="stylesheet" href="1de98341b7e33ab1.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="sonic-page">
+<body class="astar-page">
 
-<nav class="sonic-nav" aria-label="Main navigation">
-  <div class="sonic-nav__inner">
-    <a href="index.html" class="sonic-nav__logo">
-      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
-      Sonic L1
+<nav class="astar-nav" aria-label="Primary navigation">
+  <div class="astar-nav__inner">
+    <a href="index.html" class="astar-nav__logo">
+      <span class="astar-nav__logo-icon">✦</span>
+      Astar Network
     </a>
-    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-    <ul class="sonic-nav__links" id="navLinks" role="list">
+    <button class="astar-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="astar-nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="documentation.html">Documentation</a></li>
       <li><a href="explorer.html">Explorer</a></li>
-      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="development-tools.html">Dev Tools</a></li>
       <li><a href="testnet.html" class="active">Testnet</a></li>
       <li><a href="mainnet.html">Mainnet</a></li>
       <li><a href="node.html">Node</a></li>
@@ -29,261 +29,285 @@
   </div>
 </nav>
 
-<main class="sonic-main">
+<main class="astar-main">
 
   <!-- Hero -->
-  <section class="sonic-hero">
-    <div class="sonic-hero__inner">
-      <div class="sonic-hero__badge">🧪 Blaze Testnet</div>
-      <h1 class="sonic-hero__title">Sonic <span class="highlight">Blaze Testnet</span></h1>
-      <p class="sonic-hero__desc">A fully functional testing environment that mirrors Sonic mainnet capabilities. Build, test, and iterate with confidence before deploying to production — with zero real-money risk.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#connecting" class="btn btn-primary">Connect to Blaze</a>
-        <a href="#testing" class="btn btn-outline">Testing Guide</a>
+  <section class="astar-hero">
+    <div class="astar-hero__inner">
+      <div class="astar-hero__badge">✦ Test Environment</div>
+      <h1 class="astar-hero__title">Astar <span class="highlight">Shibuya Testnet</span></h1>
+      <p class="astar-hero__desc">
+        Shibuya is Astar's dedicated testnet — a safe environment for deploying and testing smart contracts before mainnet. It mirrors mainnet protocol configuration including EVM, WASM, dApp Staking, and XCM. Get free SBY tokens from the Astar Portal faucet and start building today.
+      </p>
+      <div class="flex flex-wrap gap-1">
+        <a href="https://portal.astar.network" target="_blank" class="btn btn-primary">Get SBY Tokens</a>
+        <a href="development-tools.html" class="btn btn-outline">Dev Tools</a>
       </div>
-      <div class="sonic-hero__stats">
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">64165</span>
-          <span class="sonic-hero__stat-label">Chain ID</span>
+      <div class="astar-hero__stats">
+        <div class="astar-hero__stat">
+          <span class="astar-hero__stat-value">81</span>
+          <span class="astar-hero__stat-label">Chain ID</span>
         </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">Free</span>
-          <span class="sonic-hero__stat-label">Test Tokens</span>
+        <div class="astar-hero__stat">
+          <span class="astar-hero__stat-value">Free</span>
+          <span class="astar-hero__stat-label">Test Tokens</span>
         </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">&lt;1s</span>
-          <span class="sonic-hero__stat-label">Block Time</span>
+        <div class="astar-hero__stat">
+          <span class="astar-hero__stat-value">~12s</span>
+          <span class="astar-hero__stat-label">Block Time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shibuya Overview -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Overview</span>
+        <h2 class="astar-section__title">Shibuya Overview</h2>
+        <p class="astar-section__subtitle">Shibuya is designed to be an accurate pre-production environment. What works on Shibuya will work on Astar Mainnet.</p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <div class="info-box">
+            <div class="info-box__title">Purpose</div>
+            <p class="mb-0">Shibuya exists to let developers test smart contracts, dApp integrations, and XCM interactions in a risk-free environment with no real economic value. Tokens (SBY) are freely available and have no monetary value. Reset events may occur to keep the chain lightweight for testing purposes.</p>
+          </div>
+          <div class="info-box info-box--green mt-2">
+            <div class="info-box__title">Protocol Parity</div>
+            <p class="mb-0">Shibuya tracks Astar Mainnet's runtime version closely — typically within one release. It runs the same FRAME pallets, the same Frontier EVM version, the same dApp Staking v3 implementation, and the same XCM configuration. Developers can be confident that behaviour observed on Shibuya reflects what they will see on mainnet.</p>
+          </div>
+        </div>
+        <div>
+          <div class="info-box info-box--pink">
+            <div class="info-box__title">Testing Pipeline</div>
+            <p>Recommended deployment progression for production readiness:</p>
+            <ol>
+              <li><strong>Shibuya</strong> (Chain ID 81) — develop and iterate, free tokens, fast iteration</li>
+              <li><strong>Shiden</strong> (Chain ID 336) — canary network on Kusama, real economic value (SDN), test in production-like conditions</li>
+              <li><strong>Astar Mainnet</strong> (Chain ID 592) — production deployment on Polkadot with ASTR</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 1: Blaze Testnet Overview -->
-  <section class="sonic-section" id="overview">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Overview</span>
-        <h2 class="sonic-section__title">Blaze Testnet Overview</h2>
-        <p class="sonic-section__subtitle">Sonic's Blaze testnet provides a production-equivalent environment for testing smart contracts, integrations, and front-end applications.</p>
+  <!-- Connecting to Shibuya -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Connect</span>
+        <h2 class="astar-section__title">Connecting to Shibuya</h2>
+        <p class="astar-section__subtitle">Add Shibuya to MetaMask and configure your development environment in minutes.</p>
       </div>
 
-      <p>The Blaze testnet (Chain ID: 64165) is Sonic's primary developer testing network. Unlike many testnets that run simplified or downgraded versions of the mainnet protocol, Blaze mirrors Sonic mainnet's full technical capabilities: the same SonicVM execution engine, the same SonicDB state storage architecture, the same Lachesis aBFT consensus mechanism, and the same JSON-RPC API surface. What works on Blaze will work on mainnet — and what fails on Blaze will fail on mainnet, making Blaze an accurate predictor of production behavior.</p>
+      <div class="grid-2">
+        <div>
+          <h3>Network Parameters</h3>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-item__label">Network Name</div>
+              <div class="spec-item__value">Shibuya Testnet</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Chain ID</div>
+              <div class="spec-item__value spec-item__value--pink">81</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Currency Symbol</div>
+              <div class="spec-item__value">SBY</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Decimals</div>
+              <div class="spec-item__value">18</div>
+            </div>
+          </div>
+          <p>EVM RPC: <code>https://evm.shibuya.astar.network</code></p>
+          <p>EVM WSS: <code>wss://ws.shibuya.astar.network</code></p>
+          <p>Substrate: <code>wss://rpc.shibuya.astar.network</code></p>
+          <p>Explorer: <a href="https://shibuya.subscan.io" target="_blank">shibuya.subscan.io</a></p>
 
-      <p>Blaze testnet is designed to accommodate all types of development workflows. Solo developers can iterate quickly using free test S tokens from the faucet, deploying new contract versions as frequently as needed without cost concern. Teams can run end-to-end integration tests against a live network with realistic block times and finality behavior that local development environments cannot replicate. Protocols conducting security audits can point their auditors at Blaze deployments to test attack vectors in a realistic network environment.</p>
+          <h3 class="mt-3">MetaMask Setup Steps</h3>
+          <ol class="step-list">
+            <li>
+              <div class="step-content">
+                <h4>Open MetaMask network settings</h4>
+                <p>Click the network selector dropdown at the top of MetaMask. Choose "Add network" then "Add a network manually".</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Enter Shibuya parameters</h4>
+                <p>Network Name: <code>Shibuya Testnet</code>, RPC URL: <code>https://evm.shibuya.astar.network</code>, Chain ID: <code>81</code>, Symbol: <code>SBY</code>.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Save and switch</h4>
+                <p>Click Save. MetaMask switches to Shibuya and your SBY balance (initially 0) appears. Proceed to the faucet.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Get SBY from the faucet</h4>
+                <p>Visit <a href="https://portal.astar.network" target="_blank">portal.astar.network</a>, connect your wallet on Shibuya, and request free SBY tokens. Tokens are sent within seconds.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
 
-      <div class="grid-3" style="margin:2rem 0;">
-        <div class="sonic-card">
-          <div class="sonic-card__icon">🔄</div>
-          <div class="sonic-card__title">Full Protocol Parity</div>
-          <div class="sonic-card__desc">Blaze runs the identical Sonic client software as mainnet. SonicVM super instruction optimizations, SonicDB storage efficiency, and Lachesis aBFT consensus all operate the same way on Blaze, giving you a true preview of mainnet behavior.</div>
+        <div>
+          <h3>Faucet Information</h3>
+          <div class="info-box info-box--green">
+            <div class="info-box__title">Astar Portal Faucet</div>
+            <p>The official faucet is embedded in the Astar Portal at <a href="https://portal.astar.network" target="_blank">portal.astar.network</a>.</p>
+            <ul>
+              <li>No social media account required</li>
+              <li>Connect MetaMask or Polkadot.js extension</li>
+              <li>Receive SBY tokens instantly</li>
+              <li>Rate-limited per wallet address per 24 hours</li>
+            </ul>
+            <p class="mb-0">If you need a larger amount for testing (e.g. for gas stress tests), reach out on the <a href="https://discord.gg/astarnetwork" target="_blank">Astar Discord</a> #developer-support channel.</p>
+          </div>
         </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🚰</div>
-          <div class="sonic-card__title">Free Faucet Tokens</div>
-          <div class="sonic-card__desc">The Sonic Blaze faucet distributes free test S tokens to developer wallets on request. Tokens are dispensed in amounts sufficient for extensive testing — multiple contract deployments, thousands of test transactions, and full integration test suites.</div>
-        </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🔍</div>
-          <div class="sonic-card__title">Testnet Explorer</div>
-          <div class="sonic-card__desc">The Blaze testnet has its own block explorer with the same features as the mainnet explorer. Verify contracts, inspect transactions, view event logs, and monitor network statistics — all in the testnet context without mainnet noise.</div>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <div class="info-box__title">⚠️ Testnet Disclaimer</div>
-        <p style="margin:0;">Test S tokens on Blaze have no real-world monetary value and cannot be transferred to or from mainnet. The testnet may occasionally be reset or upgraded independently of mainnet. Always retest your application on Blaze after each testnet upgrade before deploying new versions to mainnet.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Connecting to Blaze -->
-  <section class="sonic-section" id="connecting">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Setup</span>
-        <h2 class="sonic-section__title">Connecting to Blaze</h2>
-        <p class="sonic-section__subtitle">Add the Blaze testnet to your wallet and development tools in minutes.</p>
+  <!-- Testing & Debugging -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Testing</span>
+        <h2 class="astar-section__title">Testing &amp; Debugging</h2>
+        <p class="astar-section__subtitle">Best practices for testing smart contracts against Shibuya using Hardhat, gas estimation, and debugging techniques.</p>
       </div>
 
-      <h3>Network Parameters</h3>
-      <div class="spec-grid" style="margin-bottom:1.5rem;">
-        <div class="spec-item">
-          <div class="spec-item__label">Network Name</div>
-          <div class="spec-item__value">Sonic Blaze Testnet</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Chain ID</div>
-          <div class="spec-item__value spec-item__value--blue">64165</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Native Token Symbol</div>
-          <div class="spec-item__value spec-item__value--orange">S</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">RPC URL (HTTP)</div>
-          <div class="spec-item__value" style="font-size:.78rem;">rpc.blaze.soniclabs.com</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">RPC URL (WSS)</div>
-          <div class="spec-item__value" style="font-size:.78rem;">wss://rpc.blaze.soniclabs.com</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Block Explorer</div>
-          <div class="spec-item__value" style="font-size:.78rem;">testnet.sonicscan.org</div>
-        </div>
-      </div>
-
-      <h3>Adding Blaze to MetaMask</h3>
-      <ol class="step-list">
-        <li>
-          <div class="step-content">
-            <h4>Open MetaMask Network Settings</h4>
-            <p>Click the network selector at the top of MetaMask (it may say "Ethereum Mainnet"). Select "Add network" at the bottom of the dropdown list.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Choose "Add a network manually"</h4>
-            <p>Click "Add a network manually" at the bottom of the network list to open the manual configuration form.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Enter Blaze network details</h4>
-            <p>Fill in: Network Name → <code>Sonic Blaze Testnet</code>, RPC URL → <code>https://rpc.blaze.soniclabs.com</code>, Chain ID → <code>64165</code>, Currency Symbol → <code>S</code>, Block Explorer URL → <code>https://testnet.sonicscan.org</code>.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Save and switch</h4>
-            <p>Click "Save". MetaMask will validate the RPC endpoint and switch to Sonic Blaze Testnet. Your S balance will initially show 0 — use the faucet to obtain test tokens.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Get test S tokens</h4>
-            <p>Visit <a href="https://faucet.soniclabs.com" target="_blank" rel="noopener">faucet.soniclabs.com</a>, connect your wallet or enter your address, and request test tokens. Tokens are sent within seconds.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Section 3: Testing & Debugging -->
-  <section class="sonic-section" id="testing">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Testing</span>
-        <h2 class="sonic-section__title">Testing &amp; Debugging on Blaze</h2>
-        <p class="sonic-section__subtitle">Best practices for smart contract testing on the Sonic Blaze testnet — from unit tests to full integration test suites.</p>
-      </div>
-
-      <p>Effective testing on Blaze involves a layered approach. The first layer is unit testing with a local Hardhat or Foundry network — fast, isolated tests that run entirely in-process and provide instant feedback during development. The second layer is integration testing against Blaze, where your contracts interact with a real network that has realistic block times, mempool behavior, and finality characteristics. This two-layer approach catches different classes of bugs: unit tests find logic errors, while Blaze integration tests find timing, gas, and interaction issues that only manifest in a live network context.</p>
-
-      <h3>Hardhat Testing Against Blaze</h3>
-      <pre><code>// test/MyContract.blaze.test.js
+      <div class="grid-2">
+        <div>
+          <h3>Hardhat Test Example</h3>
+          <pre><code>// test/MyContract.test.js
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-// Run with: npx hardhat test --network sonicBlaze
-describe("MyContract (Blaze integration)", function () {
-  this.timeout(30000); // Allow time for network round-trips
-
+describe("MyContract on Shibuya", function () {
   let contract;
+  let owner;
 
   before(async function () {
-    const [deployer] = await ethers.getSigners();
-    const MyContract = await ethers.getContractFactory("MyContract");
-    contract = await MyContract.deploy();
+    // Uses shibuya network from hardhat.config.js
+    [owner] = await ethers.getSigners();
+    const Factory = await ethers.getContractFactory("MyContract");
+    contract = await Factory.deploy();
     await contract.waitForDeployment();
-    console.log("Deployed to:", await contract.getAddress());
   });
 
-  it("should process transactions with finality", async function () {
-    const tx = await contract.myFunction(42);
-    const receipt = await tx.wait(1); // Wait for 1 confirmation
-    // On Sonic, this completes in under 1 second
-    expect(receipt.status).to.equal(1);
+  it("should return correct value", async function () {
+    const val = await contract.getValue();
+    expect(val).to.equal(42n);
   });
-});</code></pre>
 
-      <h3>Gas Estimation and Optimization</h3>
-      <p>Blaze uses the same gas pricing model as Sonic mainnet, making it an accurate environment for gas estimation. Run <code>eth_estimateGas</code> on Blaze to get reliable gas usage figures for your transactions, then use these to set appropriate gas limits in your deployment scripts and front-end applications. Sonic's SonicVM typically executes common EVM operations more efficiently than the reference Ethereum implementation, so gas usage on Sonic is often lower than on Ethereum for the same bytecode.</p>
+  it("should emit event on setValue", async function () {
+    await expect(contract.setValue(100n))
+      .to.emit(contract, "ValueSet")
+      .withArgs(100n);
+  });
+});
 
-      <h3>Debugging Failed Transactions</h3>
-      <p>When a transaction reverts on Blaze, the testnet explorer displays the revert reason if the contract uses custom error types or <code>require(condition, "reason string")</code>. For more detailed debugging, use <code>eth_call</code> with the same transaction data to simulate the execution and obtain the full revert trace. Hardhat's <code>--verbose</code> flag and Foundry's <code>forge test -vvvv</code> verbosity levels provide stack traces that identify the exact line causing the revert in your Solidity source.</p>
+// Run against Shibuya:
+// npx hardhat test --network shibuya</code></pre>
+        </div>
 
-      <p>Blaze mirrors SonicVM's super instruction behavior, which means that performance characteristics you observe on Blaze accurately predict mainnet performance. If your contract runs efficiently on Blaze — processing complex operations within a single block, emitting the expected events, and consuming predictable amounts of gas — it will perform identically on mainnet under the same conditions.</p>
+        <div>
+          <h3>Gas Estimation</h3>
+          <pre><code>// Estimate gas before deploying
+const Factory = await ethers.getContractFactory("MyContract");
+const deployTx = await Factory.getDeployTransaction();
 
-      <div class="info-box info-box--green">
-        <div class="info-box__title">✅ Testing Checklist</div>
-        <p style="margin:0;">Before deploying to mainnet: ✓ All unit tests pass locally ✓ Integration tests pass on Blaze ✓ Contract verified on Blaze explorer ✓ Gas estimates within acceptable range ✓ Edge cases tested (zero values, max values, unauthorized callers) ✓ Upgrade/migration path tested (if applicable) ✓ FeeM registration tested on Blaze</p>
+const gasEstimate = await provider.estimateGas(deployTx);
+const gasPrice = await provider.getFeeData();
+
+const estimatedCostWei = gasEstimate * gasPrice.gasPrice;
+const estimatedCostSBY = ethers.formatEther(estimatedCostWei);
+console.log(`Deploy cost: ~${estimatedCostSBY} SBY`);</code></pre>
+
+          <div class="info-box info-box--pink mt-2">
+            <div class="info-box__title">Debugging Tips</div>
+            <ul>
+              <li>Use <code>console.log</code> in Hardhat tests with <code>hardhat-toolbox</code> — logs appear in test output even for Shibuya forks</li>
+              <li>Check transaction receipts for <code>status: 0</code> (revert) and inspect <code>revertReason</code> via <code>eth_call</code> replay</li>
+              <li>Use Blockscout at <a href="https://blockscout.com/shibuya" target="_blank">blockscout.com/shibuya</a> to decode revert messages visually</li>
+              <li>For Substrate-level issues (dApp Staking, XCM), use <a href="https://shibuya.subscan.io" target="_blank">shibuya.subscan.io</a> to inspect extrinsic events</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="sonic-footer">
-  <div class="sonic-footer__grid">
-    <div class="sonic-footer__brand">
-      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
-      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-        <span class="badge badge-blue">Chain ID: 146</span>
-        <span class="badge badge-orange">400K TPS</span>
-        <span class="badge badge-green">EVM Compatible</span>
+<footer class="astar-footer">
+  <div class="astar-footer__grid">
+    <div class="astar-footer__brand">
+      <h3>✦ Astar Network</h3>
+      <p>Multichain smart contract hub on Polkadot. Dual EVM + WASM, dApp Staking, and cross-chain interoperability via XCM.</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="badge badge-blue">Chain ID: 592</span>
+        <span class="badge badge-purple">Dual VM</span>
+        <span class="badge badge-cyan">Polkadot</span>
       </div>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Network</h4>
       <ul>
         <li><a href="mainnet.html">Mainnet</a></li>
-        <li><a href="testnet.html">Blaze Testnet</a></li>
-        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="testnet.html">Shibuya Testnet</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
         <li><a href="node.html">Run a Node</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Developers</h4>
       <ul>
         <li><a href="documentation.html">Documentation</a></li>
         <li><a href="development-tools.html">Dev Tools</a></li>
         <li><a href="testnet.html">Testnet Faucet</a></li>
-        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+        <li><a href="documentation.html#quickstart">Quick Start</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
-        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
-        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://astar.network" target="_blank">astar.network</a></li>
+        <li><a href="https://github.com/AstarNetwork" target="_blank">GitHub</a></li>
+        <li><a href="https://discord.gg/astarnetwork" target="_blank">Discord</a></li>
+        <li><a href="https://twitter.com/AstarNetwork" target="_blank">Twitter / X</a></li>
       </ul>
     </div>
   </div>
-  <div class="sonic-footer__bottom">
-    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
-    <div class="sonic-footer__chips">
-      <span class="sonic-footer__chip">Mainnet: 146</span>
-      <span class="sonic-footer__chip">Testnet: 64165</span>
-      <span class="sonic-footer__chip">TPS: 400K</span>
+  <div class="astar-footer__bottom">
+    <p>© 2025 Astar Network. Built on Substrate, secured by Polkadot.</p>
+    <div class="astar-footer__chips">
+      <span class="astar-footer__chip">Mainnet: 592</span>
+      <span class="astar-footer__chip">Testnet: 81</span>
+      <span class="astar-footer__chip">Shiden: 336</span>
     </div>
   </div>
 </footer>
 
 <script>
-  (function(){
-    var btn = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if(btn && links){
-      btn.addEventListener('click', function(){
-        var open = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  })();
+  const btn = document.querySelector('.astar-nav__hamburger');
+  const links = document.querySelector('.astar-nav__links');
+  if (btn && links) {
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  }
 </script>
 </body>
 </html>
