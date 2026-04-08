@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Block Explorer — Sonic L1</title>
-  <meta name="description" content="Explore Sonic L1 blocks, transactions, accounts, and smart contracts. Real-time network statistics with sub-second block times.">
+  <title>Block Explorer — Astar Network</title>
+  <meta name="description" content="Explore Astar Network blocks, transactions, extrinsics, XCM transfers, and smart contracts. Block explorer guides for Subscan and Blockscout.">
   <link rel="stylesheet" href="1de98341b7e33ab1.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="sonic-page">
+<body class="astar-page">
 
-<nav class="sonic-nav" aria-label="Main navigation">
-  <div class="sonic-nav__inner">
-    <a href="index.html" class="sonic-nav__logo">
-      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
-      Sonic L1
+<nav class="astar-nav" aria-label="Primary navigation">
+  <div class="astar-nav__inner">
+    <a href="index.html" class="astar-nav__logo">
+      <span class="astar-nav__logo-icon">✦</span>
+      Astar Network
     </a>
-    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
-    <ul class="sonic-nav__links" id="navLinks" role="list">
+    <button class="astar-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="astar-nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="documentation.html">Documentation</a></li>
       <li><a href="explorer.html" class="active">Explorer</a></li>
-      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="development-tools.html">Dev Tools</a></li>
       <li><a href="testnet.html">Testnet</a></li>
       <li><a href="mainnet.html">Mainnet</a></li>
       <li><a href="node.html">Node</a></li>
@@ -29,278 +29,272 @@
   </div>
 </nav>
 
-<main class="sonic-main">
+<main class="astar-main">
 
   <!-- Hero -->
-  <section class="sonic-hero">
-    <div class="sonic-hero__inner">
-      <div class="sonic-hero__badge">🔍 Block Explorer</div>
-      <h1 class="sonic-hero__title">Sonic <span class="highlight">Block Explorer</span></h1>
-      <p class="sonic-hero__desc">Explore every block, transaction, account, and smart contract on the Sonic L1 network in real time. Sub-second block production means the explorer is always live.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="https://sonicscan.org" target="_blank" rel="noopener" class="btn btn-primary">Open Explorer ↗</a>
-        <a href="documentation.html" class="btn btn-outline">Read Docs</a>
+  <section class="astar-hero">
+    <div class="astar-hero__inner">
+      <div class="astar-hero__badge">✦ On-Chain Transparency</div>
+      <h1 class="astar-hero__title">Astar <span class="highlight">Block Explorer</span></h1>
+      <p class="astar-hero__desc">
+        Inspect every block, transaction, extrinsic, smart contract, and XCM transfer on Astar Network. Two complementary explorers give you full visibility: Subscan for Substrate-native data including extrinsics and events, and Blockscout for EVM transaction details and contract verification.
+      </p>
+      <div class="flex flex-wrap gap-1">
+        <a href="https://astar.subscan.io" target="_blank" class="btn btn-primary">Open Subscan ↗</a>
+        <a href="https://blockscout.com/astar" target="_blank" class="btn btn-outline">Open Blockscout ↗</a>
       </div>
-      <div class="sonic-hero__stats">
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">&lt;1s</span>
-          <span class="sonic-hero__stat-label">Block Time</span>
+    </div>
+  </section>
+
+  <!-- Explorer Overview -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Overview</span>
+        <h2 class="astar-section__title">Explorer Overview</h2>
+        <p class="astar-section__subtitle">Two block explorers provide complementary views of the same on-chain data — choose based on what you need.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="astar-card">
+          <div class="astar-card__icon">🔎</div>
+          <h3 class="astar-card__title">Subscan</h3>
+          <p class="astar-card__desc">
+            <a href="https://astar.subscan.io/" target="_blank">astar.subscan.io</a> is Astar's primary Substrate explorer. It exposes native Polkadot/Substrate data structures including extrinsics, events, runtime calls, dApp Staking eras, XCM messages, and on-chain governance. Essential for developers working with <code>@polkadot/api</code> or monitoring parachain activity.
+          </p>
+          <div class="flex flex-wrap gap-1 mt-2">
+            <span class="badge badge-blue">Substrate Native</span>
+            <span class="badge badge-green">XCM Tracking</span>
+            <span class="badge badge-purple">dApp Staking</span>
+          </div>
         </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">10K</span>
-          <span class="sonic-hero__stat-label">Verified TPS</span>
-        </div>
-        <div class="sonic-hero__stat">
-          <span class="sonic-hero__stat-value">146</span>
-          <span class="sonic-hero__stat-label">Chain ID</span>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--cyan">🔍</div>
+          <h3 class="astar-card__title">Blockscout</h3>
+          <p class="astar-card__desc">
+            <a href="https://blockscout.com/astar" target="_blank">blockscout.com/astar</a> provides an Etherscan-compatible EVM explorer. Verify smart contracts, inspect internal transactions, decode ABI calls, view token transfers (ERC-20 / ERC-721), and monitor contract events. Supports Sourcify-based contract verification via the standard Hardhat/Foundry plugins.
+          </p>
+          <div class="flex flex-wrap gap-1 mt-2">
+            <span class="badge badge-blue">EVM Native</span>
+            <span class="badge badge-cyan">Contract Verify</span>
+            <span class="badge badge-green">Token Transfers</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 1: Explorer Overview -->
-  <section class="sonic-section" id="overview">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Explorer</span>
-        <h2 class="sonic-section__title">Sonic Explorer Overview</h2>
-        <p class="sonic-section__subtitle">A comprehensive tool for monitoring, auditing, and analyzing all on-chain activity across the Sonic L1 network.</p>
+  <!-- What You Can Do -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Features</span>
+        <h2 class="astar-section__title">What You Can Do</h2>
+        <p class="astar-section__subtitle">Block explorers on Astar offer functionality across both EVM and Substrate layers.</p>
       </div>
-
-      <p>The Sonic block explorer is the primary transparency interface for the Sonic L1 network. It provides real-time visibility into every aspect of on-chain activity: individual transactions and their execution status, block production and validator information, account balances and transaction histories, deployed smart contracts and their interactions, and live network health metrics.</p>
-
-      <p>Because Sonic achieves sub-second finality, the explorer updates almost instantly after each new block is produced. Unlike explorers on networks with 12-second or longer block times, the Sonic explorer reflects the current state of the network with minimal lag — making it an indispensable tool for monitoring live deployments, verifying transaction outcomes in real time, and diagnosing on-chain issues as they occur rather than minutes later.</p>
-
-      <div class="grid-3" style="margin:2rem 0;">
-        <div class="sonic-card">
-          <div class="sonic-card__icon">🧱</div>
-          <div class="sonic-card__title">Block Browser</div>
-          <div class="sonic-card__desc">Browse every block produced on Sonic. View the block height, timestamp, validator who produced it, number of transactions included, gas used vs. limit, block hash, and parent hash for full chain verification.</div>
+      <div class="grid-4">
+        <div class="astar-card">
+          <div class="astar-card__icon">🔁</div>
+          <h3 class="astar-card__title">Search Transactions</h3>
+          <p class="astar-card__desc">Look up any transaction by hash. View status (success/reverted), gas used, input data, emitted events, and internal calls. Works for both EVM and native Substrate extrinsics.</p>
         </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">💸</div>
-          <div class="sonic-card__title">Transaction Lookup</div>
-          <div class="sonic-card__desc">Search any transaction by hash, account address, block number, or contract address. View full execution details including method called, arguments decoded, event logs emitted, and exact gas usage and cost.</div>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--pink">📋</div>
+          <h3 class="astar-card__title">Inspect Contracts</h3>
+          <p class="astar-card__desc">View verified contract source code, ABI, and read/write functions directly from Blockscout. Test contract calls without a frontend using the built-in read/write UI.</p>
         </div>
-        <div class="sonic-card">
-          <div class="sonic-card__icon" style="background:rgba(139,92,246,0.1);">📊</div>
-          <div class="sonic-card__title">Live Analytics</div>
-          <div class="sonic-card__desc">Real-time charts displaying TPS, gas price trends, active address counts, token transfer volumes, and validator performance metrics. Essential for understanding network load and planning optimal transaction timing.</div>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--green">📦</div>
+          <h3 class="astar-card__title">View Extrinsics</h3>
+          <p class="astar-card__desc">On Subscan, inspect every Substrate extrinsic: its module, call, parameters, and resulting events. Useful for debugging dApp Staking, XCM transfers, and governance votes.</p>
         </div>
-      </div>
-
-      <p>The Sonic explorer also supports token tracking for all ERC-20, ERC-721, and ERC-1155 tokens deployed on the network. Users can view token supply, holder distribution, transfer histories, and contract metadata — all presented in a clean interface that makes Sonic's transparent on-chain activity accessible to both technical developers and non-technical end users.</p>
-
-      <div class="info-box">
-        <div class="info-box__title">🔗 Explorer Links</div>
-        <p style="margin:0;">Mainnet explorer: <a href="https://sonicscan.org" target="_blank" rel="noopener">sonicscan.org</a> | Testnet explorer: <a href="https://testnet.sonicscan.org" target="_blank" rel="noopener">testnet.sonicscan.org</a>. Both explorers provide identical features across the respective networks.</p>
+        <div class="astar-card">
+          <div class="astar-card__icon astar-card__icon--purple">🌐</div>
+          <h3 class="astar-card__title">Track XCM Transfers</h3>
+          <p class="astar-card__desc">Subscan provides dedicated XCM message tracking — follow cross-chain asset transfers across Polkadot parachains, see origin, destination, and delivery status end-to-end.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 2: Transaction Tracking -->
-  <section class="sonic-section" id="transactions">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Transactions</span>
-        <h2 class="sonic-section__title">Transaction Tracking</h2>
-        <p class="sonic-section__subtitle">Search, verify, and analyze any transaction on Sonic — from simple S token transfers to complex multi-step DeFi interactions.</p>
+  <!-- Network Explorers Table -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Networks</span>
+        <h2 class="astar-section__title">Network Explorer URLs</h2>
+        <p class="astar-section__subtitle">Direct links to block explorers for all Astar-ecosystem networks.</p>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="astar-table">
+          <thead>
+            <tr>
+              <th>Network</th>
+              <th>Chain ID</th>
+              <th>Token</th>
+              <th>Subscan</th>
+              <th>Blockscout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Astar Mainnet</strong> <span class="badge badge-blue">Polkadot</span></td>
+              <td><code>592</code></td>
+              <td>ASTR</td>
+              <td><a href="https://astar.subscan.io" target="_blank">astar.subscan.io</a></td>
+              <td><a href="https://blockscout.com/astar" target="_blank">blockscout.com/astar</a></td>
+            </tr>
+            <tr>
+              <td><strong>Shiden</strong> <span class="badge badge-purple">Kusama</span></td>
+              <td><code>336</code></td>
+              <td>SDN</td>
+              <td><a href="https://shiden.subscan.io" target="_blank">shiden.subscan.io</a></td>
+              <td><a href="https://blockscout.com/shiden" target="_blank">blockscout.com/shiden</a></td>
+            </tr>
+            <tr>
+              <td><strong>Shibuya Testnet</strong> <span class="badge badge-pink">Testnet</span></td>
+              <td><code>81</code></td>
+              <td>SBY</td>
+              <td><a href="https://shibuya.subscan.io" target="_blank">shibuya.subscan.io</a></td>
+              <td><a href="https://blockscout.com/shibuya" target="_blank">blockscout.com/shibuya</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <p>Every transaction submitted to Sonic receives a unique transaction hash (txHash) — a 32-byte hexadecimal identifier that can be used to look up full execution details in the block explorer. Because Sonic achieves deterministic finality in under one second, a transaction that appears in the explorer as "Success" is guaranteed to be final; there is no need to wait for additional block confirmations as there is on proof-of-work or probabilistic finality networks.</p>
-
-      <p>The transaction detail view in the Sonic explorer provides a wealth of information for developers and users: the sender address (from), recipient or contract address (to), value of S tokens transferred, the exact input data sent to the contract (decoded into human-readable function calls when the ABI is available), the list of events emitted during execution (decoded into their named parameters), gas limit set by the sender, actual gas used, effective gas price, and the resulting fee paid in S tokens.</p>
-
-      <h3>Understanding Transaction Status</h3>
-      <table class="sonic-table">
-        <thead>
-          <tr>
-            <th>Status</th>
-            <th>Meaning</th>
-            <th>What to do</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="badge badge-green">Success</span></td>
-            <td>Transaction executed and finalized on-chain</td>
-            <td>No action needed — state changes are permanent</td>
-          </tr>
-          <tr>
-            <td><span class="badge badge-orange">Pending</span></td>
-            <td>Transaction submitted but not yet included in a block</td>
-            <td>Wait for inclusion; on Sonic this typically takes &lt;1 second</td>
-          </tr>
-          <tr>
-            <td><span class="badge" style="background:rgba(239,68,68,0.15);color:#F87171;">Failed</span></td>
-            <td>Transaction reverted during execution</td>
-            <td>Check the revert reason — insufficient gas, failed require(), or contract logic error</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>Gas costs on Sonic are significantly lower than on Ethereum mainnet due to the network's high throughput and efficient fee market. The near-zero fees make micro-transactions economically viable — a transaction that would cost $5–$50 on Ethereum typically costs fractions of a cent on Sonic, enabling use cases that are simply impractical on higher-fee networks.</p>
-
-      <h3>Searching Transactions</h3>
-      <p>The explorer's universal search bar accepts: transaction hashes (0x-prefixed 64-character hex strings), wallet addresses (0x-prefixed 40-character hex strings), ENS names (where supported), block numbers (plain integers), and token names or symbols. Results are returned instantly from the indexed database, with no delay even on historical queries spanning millions of blocks.</p>
+      <div class="info-box info-box--pink mt-3">
+        <div class="info-box__title">Shiden Network</div>
+        <p class="mb-0">Shiden (Chain ID 336) is Astar's canary network on Kusama — a production-grade environment that receives protocol upgrades before Astar Mainnet. It uses the SDN token and mirrors Astar's full feature set including dApp Staking, EVM, WASM, and XCM. Developers can test production conditions on Shiden before deploying to Astar.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Section 3: Smart Contract Verification -->
-  <section class="sonic-section" id="contracts">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Smart Contracts</span>
-        <h2 class="sonic-section__title">Smart Contract Verification</h2>
-        <p class="sonic-section__subtitle">Verify your contracts on-chain to enable source code transparency, ABI decoding, and interactive read/write interfaces.</p>
+  <!-- Using the Explorer -->
+  <section class="astar-section">
+    <div class="astar-container">
+      <div class="astar-section__header">
+        <span class="astar-section__tag">Guide</span>
+        <h2 class="astar-section__title">Using the Explorer</h2>
+        <p class="astar-section__subtitle">Step-by-step guides for the most common explorer tasks on Astar.</p>
       </div>
 
-      <p>Smart contract verification is the process of matching a deployed contract's on-chain bytecode with human-readable Solidity (or Vyper) source code. Once verified, the Sonic explorer can display the contract's source code, ABI (Application Binary Interface), and provide an interactive read/write panel that allows anyone to call contract functions directly from their browser without needing custom tooling.</p>
-
-      <p>Verification on Sonic works identically to Etherscan verification on Ethereum — because Sonic is fully EVM-compatible, the same compilation toolchains (solc, vyper) produce the same deterministic bytecode. The verification process involves submitting the source code, compiler version, optimization settings, and constructor arguments to the explorer's API, which recompiles the code and checks that the resulting bytecode matches what is deployed on-chain.</p>
-
-      <ol class="step-list">
-        <li>
-          <div class="step-content">
-            <h4>Navigate to the contract address</h4>
-            <p>Search for your deployed contract address in the Sonic explorer and open the "Contract" tab on the detail page.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Click "Verify and Publish"</h4>
-            <p>Select the compilation method: single file, standard JSON input, or multi-file. Choose the Solidity compiler version matching what you used for deployment.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Submit source code</h4>
-            <p>Paste your source code or upload the standard JSON input file. Include constructor arguments in ABI-encoded format if your contract's constructor accepts parameters.</p>
-          </div>
-        </li>
-        <li>
-          <div class="step-content">
-            <h4>Use the read/write panel</h4>
-            <p>Once verified, the "Read Contract" and "Write Contract" tabs become available. Connect MetaMask to call state-changing functions directly through the explorer UI.</p>
-          </div>
-        </li>
-      </ol>
-
-      <p>Hardhat and Foundry both support automated verification on Sonic-compatible explorers via their built-in verification plugins. Configure the explorer API URL in your deployment script to submit verification automatically after each deployment, eliminating the need for manual steps.</p>
-    </div>
-  </section>
-
-  <!-- Section 4: Network Statistics -->
-  <section class="sonic-section" id="stats">
-    <div class="sonic-container">
-      <div class="sonic-section__header">
-        <span class="sonic-section__tag">Network Health</span>
-        <h2 class="sonic-section__title">Network Statistics</h2>
-        <p class="sonic-section__subtitle">Real-time metrics that give a complete picture of Sonic's network health, validator performance, and ecosystem growth.</p>
-      </div>
-
-      <div class="spec-grid">
-        <div class="spec-item">
-          <div class="spec-item__label">Peak Throughput</div>
-          <div class="spec-item__value spec-item__value--blue">400,000 TPS</div>
+      <div class="grid-2">
+        <div>
+          <h3>Verify a Smart Contract on Blockscout</h3>
+          <ol class="step-list">
+            <li>
+              <div class="step-content">
+                <h4>Deploy your contract</h4>
+                <p>Deploy to Astar Mainnet or Shibuya Testnet. Note the contract address from your deployment output.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Navigate to the contract on Blockscout</h4>
+                <p>Go to <a href="https://blockscout.com/astar" target="_blank">blockscout.com/astar</a> and search for your contract address. Click the "Code" tab.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Select verification method</h4>
+                <p>Choose "Flattened source code" or "Standard JSON Input". Match the Solidity version and optimization settings used during compilation.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Submit and confirm</h4>
+                <p>Upload your source or JSON and submit. Blockscout will verify bytecode matches. Verified contracts show a green checkmark and expose read/write UI.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Verified TPS</div>
-          <div class="spec-item__value spec-item__value--blue">10,000 TPS</div>
+        <div>
+          <h3>Track an XCM Transfer on Subscan</h3>
+          <ol class="step-list">
+            <li>
+              <div class="step-content">
+                <h4>Initiate the XCM transfer</h4>
+                <p>Send an XCM transfer from the Astar Portal or via <code>polkadotXcm.limitedReserveTransferAssets</code> extrinsic. Copy the extrinsic hash.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Find the extrinsic on Subscan</h4>
+                <p>Go to <a href="https://astar.subscan.io" target="_blank">astar.subscan.io</a>, search the extrinsic hash. Click "XCM Messages" to see the associated cross-chain message.</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <h4>Follow the message</h4>
+                <p>Subscan shows the message hash, origin chain, destination chain, and delivery status. Click through to the destination chain's Subscan to confirm receipt.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Block Time</div>
-          <div class="spec-item__value">&lt;1 second</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Finality</div>
-          <div class="spec-item__value spec-item__value--orange">Deterministic</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Total Supply (S)</div>
-          <div class="spec-item__value">See Explorer</div>
-        </div>
-        <div class="spec-item">
-          <div class="spec-item__label">Innovator Fund</div>
-          <div class="spec-item__value spec-item__value--orange">200M S</div>
-        </div>
-      </div>
-
-      <p>The Sonic explorer's statistics dashboard aggregates data across all validator nodes to produce a real-time view of network health. Key metrics include the current transaction per second rate (sampled over 1-minute, 5-minute, and 60-minute windows), the mempool depth (number of pending transactions awaiting inclusion), current minimum and average gas prices, validator uptime percentages, and epoch-by-epoch staking reward distributions.</p>
-
-      <p>Total Value Locked (TVL) data is tracked per protocol and per asset class. Users can view which DeFi applications are accumulating the most liquidity, observe liquidity flow trends, and understand which segments of the Sonic DeFi ecosystem are growing fastest. This data is particularly valuable for FeeM-registered developers, who can correlate their TVL growth with their earned fee rebates and optimize their applications for maximum revenue.</p>
-
-      <p>Network security metrics are also prominently displayed: the total amount of S tokens staked across all validators, the staking ratio (staked S / total S supply), the current number of active validators, and the geographic distribution of validator nodes. These metrics help the community assess the decentralization and censorship resistance of the Sonic network at a glance.</p>
-
-      <div class="info-box info-box--purple">
-        <div class="info-box__title">📡 API Access</div>
-        <p style="margin:0;">All explorer data is available via REST API. Query blocks, transactions, accounts, tokens, and statistics programmatically by appending <code>/api</code> to the explorer base URL. Full API documentation is available on the explorer website. Rate limits apply for unauthenticated requests; register for an API key for higher throughput.</p>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer class="sonic-footer">
-  <div class="sonic-footer__grid">
-    <div class="sonic-footer__brand">
-      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
-      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-        <span class="badge badge-blue">Chain ID: 146</span>
-        <span class="badge badge-orange">400K TPS</span>
-        <span class="badge badge-green">EVM Compatible</span>
+<footer class="astar-footer">
+  <div class="astar-footer__grid">
+    <div class="astar-footer__brand">
+      <h3>✦ Astar Network</h3>
+      <p>Multichain smart contract hub on Polkadot. Dual EVM + WASM, dApp Staking, and cross-chain interoperability via XCM.</p>
+      <div class="flex flex-wrap gap-1">
+        <span class="badge badge-blue">Chain ID: 592</span>
+        <span class="badge badge-purple">Dual VM</span>
+        <span class="badge badge-cyan">Polkadot</span>
       </div>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Network</h4>
       <ul>
         <li><a href="mainnet.html">Mainnet</a></li>
-        <li><a href="testnet.html">Blaze Testnet</a></li>
-        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="testnet.html">Shibuya Testnet</a></li>
+        <li><a href="explorer.html">Explorer</a></li>
         <li><a href="node.html">Run a Node</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Developers</h4>
       <ul>
         <li><a href="documentation.html">Documentation</a></li>
         <li><a href="development-tools.html">Dev Tools</a></li>
         <li><a href="testnet.html">Testnet Faucet</a></li>
-        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+        <li><a href="documentation.html#quickstart">Quick Start</a></li>
       </ul>
     </div>
-    <div class="sonic-footer__col">
+    <div class="astar-footer__col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
-        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
-        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://astar.network" target="_blank">astar.network</a></li>
+        <li><a href="https://github.com/AstarNetwork" target="_blank">GitHub</a></li>
+        <li><a href="https://discord.gg/astarnetwork" target="_blank">Discord</a></li>
+        <li><a href="https://twitter.com/AstarNetwork" target="_blank">Twitter / X</a></li>
       </ul>
     </div>
   </div>
-  <div class="sonic-footer__bottom">
-    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
-    <div class="sonic-footer__chips">
-      <span class="sonic-footer__chip">Mainnet: 146</span>
-      <span class="sonic-footer__chip">Testnet: 64165</span>
-      <span class="sonic-footer__chip">TPS: 400K</span>
+  <div class="astar-footer__bottom">
+    <p>© 2025 Astar Network. Built on Substrate, secured by Polkadot.</p>
+    <div class="astar-footer__chips">
+      <span class="astar-footer__chip">Mainnet: 592</span>
+      <span class="astar-footer__chip">Testnet: 81</span>
+      <span class="astar-footer__chip">Shiden: 336</span>
     </div>
   </div>
 </footer>
 
 <script>
-  (function(){
-    var btn = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if(btn && links){
-      btn.addEventListener('click', function(){
-        var open = links.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  })();
+  const btn = document.querySelector('.astar-nav__hamburger');
+  const links = document.querySelector('.astar-nav__links');
+  if (btn && links) {
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
 </script>
 </body>
 </html>
