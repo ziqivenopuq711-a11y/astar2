@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Running a Sonic Node — Sonic L1</title>
+  <meta name="description" content="Complete guide to running a Sonic L1 node: hardware requirements, installation, validator setup, monitoring, and SonicDB's 96% storage cost reduction.">
+  <link rel="stylesheet" href="1de98341b7e33ab1.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sonic-page">
+
+<nav class="sonic-nav" aria-label="Main navigation">
+  <div class="sonic-nav__inner">
+    <a href="index.html" class="sonic-nav__logo">
+      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
+      Sonic L1
+    </a>
+    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <ul class="sonic-nav__links" id="navLinks" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="explorer.html">Explorer</a></li>
+      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="testnet.html">Testnet</a></li>
+      <li><a href="mainnet.html">Mainnet</a></li>
+      <li><a href="node.html" class="active">Node</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="sonic-main">
+
+  <!-- Hero -->
+  <section class="sonic-hero">
+    <div class="sonic-hero__inner">
+      <div class="sonic-hero__badge">🖥️ Node Operations</div>
+      <h1 class="sonic-hero__title">Running a <span class="highlight">Sonic Node</span></h1>
+      <p class="sonic-hero__desc">Support network decentralization, get direct RPC access, and participate in validation. SonicDB's 96% storage cost reduction makes Sonic nodes dramatically cheaper to operate than competing L1s.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="#installation" class="btn btn-primary">Install a Node</a>
+        <a href="#validator" class="btn btn-outline">Become a Validator</a>
+      </div>
+      <div class="sonic-hero__stats">
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">96%</span>
+          <span class="sonic-hero__stat-label">Storage Savings</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">go-opera</span>
+          <span class="sonic-hero__stat-label">Client Name</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">aBFT</span>
+          <span class="sonic-hero__stat-label">Consensus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Node Overview -->
+  <section class="sonic-section" id="overview">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Overview</span>
+        <h2 class="sonic-section__title">Why Run a Sonic Node?</h2>
+        <p class="sonic-section__subtitle">Running a Sonic node gives you direct, trustless access to the network while contributing to its decentralization and security.</p>
+      </div>
+
+      <p>Running your own Sonic node is the most direct and trustless way to interact with the Sonic network. Rather than relying on third-party RPC providers, a self-hosted node gives you your own private JSON-RPC endpoint with no rate limits, no data sharing with external parties, and the assurance that you are reading the canonical blockchain state directly. For serious dApp developers, protocol teams, and trading operations, a self-hosted node is often preferable to shared RPC infrastructure.</p>
+
+      <p>Beyond direct access, running a Sonic node contributes to the network's decentralization and censorship resistance. The more geographically distributed and independently operated full nodes exist in the network, the more resilient Sonic is to coordinated attacks, infrastructure failures, or attempts to censor transactions. Every additional node strengthens the collective security and availability of the network for all participants.</p>
+
+      <div class="grid-3" style="margin:2rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">🏃</div>
+          <div class="sonic-card__title">Full Node</div>
+          <div class="sonic-card__desc">A full node verifies every transaction and maintains the current state of the blockchain. It provides a private JSON-RPC endpoint and participates in gossip propagation. Full nodes do not vote in consensus and do not require staked tokens. Ideal for developers and infrastructure providers.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🗳️</div>
+          <div class="sonic-card__title">Validator Node</div>
+          <div class="sonic-card__desc">A validator node participates in Lachesis aBFT consensus by creating and voting on event blocks. Validators must stake S tokens and are rewarded with staking income and FeeM participation. Running a validator requires high uptime and reliable hardware to avoid slashing penalties.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">📚</div>
+          <div class="sonic-card__title">Archive Node</div>
+          <div class="sonic-card__desc">An archive node retains the complete historical state of the blockchain at every block height, not just the current state. Required for serving historical eth_call queries and powering block explorers, analytics platforms, and compliance tools that need deep historical data.</div>
+        </div>
+      </div>
+
+      <p>Thanks to SonicDB's 96% reduction in storage requirements, Sonic nodes are dramatically more economical to operate than comparable nodes on other EVM chains. An Ethereum archive node can require 10+ TB of NVMe storage; a Sonic full node running SonicDB operates comfortably on a fraction of that. This makes it realistic for individual developers, small teams, and community members to run their own nodes on consumer hardware or affordable cloud VPS instances, broadening the node operator base beyond well-funded institutions.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Hardware Requirements -->
+  <section class="sonic-section" id="hardware">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Hardware</span>
+        <h2 class="sonic-section__title">Hardware Requirements</h2>
+        <p class="sonic-section__subtitle">SonicDB's efficiency means Sonic nodes can run on significantly less hardware than competing L1 nodes of equivalent capability.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:2rem;">
+        <div>
+          <h3>Full Node — Minimum Specifications</h3>
+          <table class="sonic-table">
+            <tbody>
+              <tr><td><strong>CPU</strong></td><td>4 cores, 3.0 GHz+</td></tr>
+              <tr><td><strong>RAM</strong></td><td>16 GB DDR4</td></tr>
+              <tr><td><strong>Storage</strong></td><td>500 GB SSD (NVMe recommended)</td></tr>
+              <tr><td><strong>Network</strong></td><td>100 Mbps stable connection</td></tr>
+              <tr><td><strong>OS</strong></td><td>Ubuntu 22.04 LTS or Debian 12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Validator Node — Recommended Specifications</h3>
+          <table class="sonic-table">
+            <tbody>
+              <tr><td><strong>CPU</strong></td><td>8+ cores, 3.5 GHz+ (AMD EPYC or Intel Xeon)</td></tr>
+              <tr><td><strong>RAM</strong></td><td>32 GB DDR4 ECC</td></tr>
+              <tr><td><strong>Storage</strong></td><td>1 TB NVMe SSD (high IOPS)</td></tr>
+              <tr><td><strong>Network</strong></td><td>1 Gbps with &lt;10ms latency to peer validators</td></tr>
+              <tr><td><strong>Redundancy</strong></td><td>UPS backup power, RAID storage</td></tr>
+              <tr><td><strong>OS</strong></td><td>Ubuntu 22.04 LTS (server edition)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p>The SonicDB storage architecture separates hot state (current account balances and contract storage values, accessed on every transaction) from warm state (recently modified data) and cold/archive state (historical data rarely needed during normal operation). This tiered access pattern means that the NVMe SSD requirement applies primarily to the hot state cache, which is relatively small compared to the full historical dataset. Commodity SSDs are acceptable for full nodes, while validators should prioritize low-latency NVMe drives to minimize the small disk I/O component of block processing time.</p>
+
+      <div class="info-box info-box--green">
+        <div class="info-box__title">💡 Compared to Other L1s</div>
+        <p style="margin:0;">An Ethereum full node requires 2 TB+ of storage and continues growing by hundreds of GB per year. An Ethereum archive node requires 10–15 TB. By contrast, Sonic's SonicDB means a full node starts below 100 GB and grows at a fraction of the rate, making long-term node operation economically sustainable on standard hardware.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Installation & Configuration -->
+  <section class="sonic-section" id="installation">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Installation</span>
+        <h2 class="sonic-section__title">Installation &amp; Configuration</h2>
+        <p class="sonic-section__subtitle">Step-by-step guide to installing the Sonic client (go-opera), configuring genesis, and joining the mainnet.</p>
+      </div>
+
+      <h3>Step 1: Install Go and Dependencies</h3>
+      <pre><code># Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install Go (1.21+)
+wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+
+# Install build dependencies
+sudo apt install -y git make gcc build-essential</code></pre>
+
+      <h3>Step 2: Clone and Build go-opera</h3>
+      <pre><code># Clone the Sonic client repository
+git clone https://github.com/Fantom-foundation/go-opera.git
+cd go-opera
+
+# Checkout the latest stable release tag
+git checkout $(git describe --tags --abbrev=0)
+
+# Build the client
+make opera
+
+# Verify installation
+./build/opera version</code></pre>
+
+      <h3>Step 3: Configure Genesis and Start Syncing</h3>
+      <pre><code># Download the genesis file
+wget https://download.soniclabs.com/mainnet/genesis/sonic-mainnet-genesis.g \
+     -O ~/sonic/genesis.g
+
+# Initialize the data directory
+./build/opera --datadir ~/sonic/data \
+              --genesis ~/sonic/genesis.g \
+              --chain 146 \
+              account new  # Create a local keystore account
+
+# Start the node
+./build/opera \
+  --datadir ~/sonic/data \
+  --genesis ~/sonic/genesis.g \
+  --chain 146 \
+  --http --http.addr 127.0.0.1 \
+  --http.port 18545 \
+  --http.api eth,net,web3 \
+  --ws --ws.addr 127.0.0.1 \
+  --ws.port 18546</code></pre>
+
+      <h3>Step 4: Set Up systemd Service</h3>
+      <pre><code># /etc/systemd/system/sonic-node.service
+[Unit]
+Description=Sonic L1 Node
+After=network.target
+
+[Service]
+User=sonic
+ExecStart=/home/sonic/go-opera/build/opera \
+  --datadir /home/sonic/sonic/data \
+  --genesis /home/sonic/sonic/genesis.g \
+  --chain 146 \
+  --http --http.addr 127.0.0.1 \
+  --http.port 18545 \
+  --http.api eth,net,web3
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+      <pre><code>sudo systemctl daemon-reload
+sudo systemctl enable sonic-node
+sudo systemctl start sonic-node
+sudo journalctl -u sonic-node -f  # Follow logs</code></pre>
+    </div>
+  </section>
+
+  <!-- Section 4: Validator Setup -->
+  <section class="sonic-section" id="validator">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Validation</span>
+        <h2 class="sonic-section__title">Validator Setup</h2>
+        <p class="sonic-section__subtitle">Participate in Lachesis aBFT consensus, earn staking rewards, and strengthen Sonic network security as a validator.</p>
+      </div>
+
+      <p>Validators are the backbone of Sonic's Lachesis aBFT consensus mechanism. By staking S tokens and running a validator node, you participate directly in the creation and finalization of event blocks — the core process by which the Sonic network achieves its sub-second finality. In return for this service, validators earn staking rewards proportional to their stake weight, plus a share of the transaction fees routed to them by the FeeM system.</p>
+
+      <p>Becoming a validator on Sonic requires meeting a minimum staking threshold of S tokens, which is set by governance and can be found in the current network parameters. The staking process involves locking S tokens in the on-chain staking contract, registering a validator key, and ensuring your node meets the uptime requirements. Validators that fail to maintain adequate uptime or that exhibit Byzantine behavior (signing conflicting blocks) are subject to slashing, which permanently reduces their staked balance as a penalty for harming the network.</p>
+
+      <h3>Validator Registration Steps</h3>
+      <ol class="step-list">
+        <li>
+          <div class="step-content">
+            <h4>Generate validator keys</h4>
+            <p>Create a dedicated validator keypair separate from your funding wallet. Store the private key securely — on a hardware security module (HSM) for production validators. Never expose validator keys on internet-connected systems.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Stake the minimum S tokens</h4>
+            <p>Send the required minimum S token amount to the SFC (Special Fee Contract) staking contract on Sonic mainnet. This locks your tokens and registers your validator entry. The staking transaction includes your validator public key.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Configure and start the validator node</h4>
+            <p>Pass your validator key to the go-opera client using the <code>--validator.id</code> and <code>--validator.pubkey</code> flags. The node will immediately begin participating in consensus once synced and registered.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Monitor validator performance</h4>
+            <p>Use the Sonic explorer's validator tab to monitor your validator's uptime, block production rate, and reward history. Set up alerting (PagerDuty, OpsGenie) on node health metrics to catch issues before they affect uptime SLAs.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="info-box info-box--orange">
+        <div class="info-box__title">⚠️ Slashing Conditions</div>
+        <p style="margin:0;">Validators can be slashed for: double-signing event blocks (equivocation), being offline for extended periods below the minimum uptime threshold, or submitting invalid event blocks. Slashing permanently reduces the validator's staked balance. Run a robust monitoring setup and keep your client software up to date to minimize slashing risk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Monitoring & Maintenance -->
+  <section class="sonic-section" id="monitoring">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Operations</span>
+        <h2 class="sonic-section__title">Monitoring &amp; Maintenance</h2>
+        <p class="sonic-section__subtitle">Best practices for keeping your Sonic node healthy, up-to-date, and performing at its best.</p>
+      </div>
+
+      <p>Production Sonic node operation requires ongoing monitoring and maintenance. The go-opera client exposes a Prometheus-compatible metrics endpoint that provides detailed telemetry on node performance: block processing time, peer count, mempool depth, database read/write latency, event propagation time, and consensus round progress. Collecting these metrics into a Prometheus server and visualizing them with Grafana dashboards gives node operators full operational visibility.</p>
+
+      <h3>Prometheus Configuration</h3>
+      <pre><code># Start go-opera with metrics enabled
+./build/opera \
+  --datadir ~/sonic/data \
+  --metrics \
+  --metrics.addr 0.0.0.0 \
+  --metrics.port 6060 \
+  [other flags...]
+
+# prometheus.yml — add Sonic job
+scrape_configs:
+  - job_name: 'sonic-node'
+    static_configs:
+      - targets: ['localhost:6060']
+    scrape_interval: 15s</code></pre>
+
+      <h3>Key Metrics to Monitor</h3>
+      <table class="sonic-table">
+        <thead>
+          <tr><th>Metric</th><th>Normal Range</th><th>Alert Threshold</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>opera_peer_count</code></td><td>15–50 peers</td><td>&lt;5 peers (isolation risk)</td></tr>
+          <tr><td><code>opera_block_processing_ms</code></td><td>&lt;50ms</td><td>&gt;500ms (hardware issue)</td></tr>
+          <tr><td><code>opera_mempool_tx_count</code></td><td>0–5000</td><td>&gt;50000 (network stress)</td></tr>
+          <tr><td><code>opera_consensus_epoch</code></td><td>Incrementing</td><td>Stalled for &gt;60s</td></tr>
+          <tr><td><code>system_disk_usage_percent</code></td><td>&lt;70%</td><td>&gt;85% (storage warning)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Software Upgrades</h3>
+      <p>Sonic releases regular software updates to go-opera that include performance improvements, bug fixes, and protocol upgrades. Subscribe to the Sonic GitHub releases page and Discord announcements to receive timely notification of new releases. For mandatory protocol upgrades (hard forks), all validators must upgrade before the specified block height or they will fall out of consensus. Use a blue/green deployment strategy for validators — bring up a fully synced secondary node with the new version before switching over, to minimize downtime during upgrades.</p>
+
+      <h3>Snapshot Sync</h3>
+      <p>For operators setting up a new node, syncing from genesis can take significant time. Sonic provides official pruned state snapshots that allow new full nodes to sync to near-current state in hours rather than days. Download the latest snapshot, extract it to your data directory, and start go-opera — it will sync only the remaining blocks from the snapshot height to the current chain tip. Snapshots are published weekly and are cryptographically verified against the canonical chain state.</p>
+
+      <div class="info-box info-box--purple">
+        <div class="info-box__title">📊 Community Dashboards</div>
+        <p style="margin:0;">The Sonic community maintains shared Grafana dashboard templates for go-opera node monitoring on the Sonic GitHub organization. Import these pre-built dashboards into your Grafana instance to get comprehensive node monitoring without building dashboards from scratch. Contribute improvements back to the community repository.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sonic-footer">
+  <div class="sonic-footer__grid">
+    <div class="sonic-footer__brand">
+      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
+      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        <span class="badge badge-blue">Chain ID: 146</span>
+        <span class="badge badge-orange">400K TPS</span>
+        <span class="badge badge-green">EVM Compatible</span>
+      </div>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="mainnet.html">Mainnet</a></li>
+        <li><a href="testnet.html">Blaze Testnet</a></li>
+        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="node.html">Run a Node</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Developers</h4>
+      <ul>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="development-tools.html">Dev Tools</a></li>
+        <li><a href="testnet.html">Testnet Faucet</a></li>
+        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
+        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sonic-footer__bottom">
+    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
+    <div class="sonic-footer__chips">
+      <span class="sonic-footer__chip">Mainnet: 146</span>
+      <span class="sonic-footer__chip">Testnet: 64165</span>
+      <span class="sonic-footer__chip">TPS: 400K</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if(btn && links){
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>

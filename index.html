@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home — Sonic L1</title>
+  <meta name="description" content="Sonic L1: The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.">
+  <link rel="stylesheet" href="1de98341b7e33ab1.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sonic-page">
+
+<nav class="sonic-nav" aria-label="Main navigation">
+  <div class="sonic-nav__inner">
+    <a href="index.html" class="sonic-nav__logo">
+      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
+      Sonic L1
+    </a>
+    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <ul class="sonic-nav__links" id="navLinks" role="list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="explorer.html">Explorer</a></li>
+      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="testnet.html">Testnet</a></li>
+      <li><a href="mainnet.html">Mainnet</a></li>
+      <li><a href="node.html">Node</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="sonic-main">
+
+  <!-- Hero -->
+  <section class="sonic-hero">
+    <div class="sonic-hero__inner">
+      <div class="sonic-hero__badge">⚡ EVM Layer-1 Blockchain</div>
+      <h1 class="sonic-hero__title">Welcome to <span class="highlight">Sonic L1</span></h1>
+      <p class="sonic-hero__desc">The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and 100% Ethereum compatibility — evolved from Fantom with a completely reimagined execution and storage layer.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="documentation.html#getting-started" class="btn btn-primary">Get Started</a>
+        <a href="mainnet.html" class="btn btn-outline">Explore Mainnet</a>
+      </div>
+      <div class="sonic-hero__stats">
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">400K</span>
+          <span class="sonic-hero__stat-label">Max TPS</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">&lt;1s</span>
+          <span class="sonic-hero__stat-label">Finality</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">146</span>
+          <span class="sonic-hero__stat-label">Chain ID</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">EVM</span>
+          <span class="sonic-hero__stat-label">Compatible</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: What is Sonic -->
+  <section class="sonic-section" id="overview">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Overview</span>
+        <h2 class="sonic-section__title">What is Sonic L1?</h2>
+        <p class="sonic-section__subtitle">Sonic is a next-generation EVM-compatible Layer-1 blockchain engineered for applications that demand extreme throughput, real-time finality, and low transaction costs.</p>
+      </div>
+
+      <p>Sonic L1 is the evolution of the Fantom Opera network — a ground-up redesign that preserves complete Ethereum compatibility while shattering the performance limits of traditional EVM chains. Where most EVM chains process a few thousand transactions per second at best, Sonic delivers up to 400,000 TPS with deterministic finality in under one second. Where Ethereum gas fees can spike to tens of dollars under load, Sonic maintains near-zero fees even at full capacity.</p>
+
+      <p>This leap in performance is not a compromise. Sonic is 100% backward-compatible with the Ethereum Virtual Machine. Every Solidity contract, every Hardhat and Foundry workflow, every Ethers.js and Viem integration, every wallet and block explorer — all work on Sonic without modification. Developers who know Ethereum can build on Sonic immediately, with their existing skills and tools, and immediately access the platform's performance advantages.</p>
+
+      <div class="grid-2" style="margin:2rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">🧬</div>
+          <div class="sonic-card__title">Evolved from Fantom</div>
+          <div class="sonic-card__desc">Sonic preserves the complete account and state history of Fantom Opera. Projects that ran on Fantom can migrate their contracts, user accounts, and token balances to Sonic without data loss, inheriting the platform's higher performance immediately.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🔗</div>
+          <div class="sonic-card__title">Fully EVM Compatible</div>
+          <div class="sonic-card__desc">Deploy any Solidity or Vyper smart contract to Sonic without changes. Use MetaMask, WalletConnect, Hardhat, Foundry, Ethers.js, Viem, or any other Ethereum tooling. Sonic's JSON-RPC API is fully Ethereum-specification-compliant.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Core Technology -->
+  <section class="sonic-section" id="technology">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Core Technology</span>
+        <h2 class="sonic-section__title">Built for Performance</h2>
+        <p class="sonic-section__subtitle">Sonic's performance comes from four interconnected innovations: a faster VM, a more efficient state database, a next-generation consensus protocol, and a developer-aligned fee model.</p>
+      </div>
+
+      <div class="grid-2" style="margin:2rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">⚙️</div>
+          <div class="sonic-card__title">SonicVM</div>
+          <div class="sonic-card__desc">A redesigned EVM execution engine that compiles EVM bytecode into "super instructions" — composite opcodes that reduce interpreter dispatch overhead by up to 65%. SonicVM is 100% compatible with standard EVM bytecode and produces identical execution results at dramatically higher speed.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🗄️</div>
+          <div class="sonic-card__title">SonicDB</div>
+          <div class="sonic-card__desc">A purpose-built state storage layer that separates live state from historical archive data. Live state is kept in a compact, cache-optimized structure for fast SLOAD/SSTORE operations. Historical data is compressed and archived separately, dramatically reducing node storage requirements.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🤝</div>
+          <div class="sonic-card__title">Lachesis aBFT</div>
+          <div class="sonic-card__desc">An asynchronous Byzantine Fault Tolerant consensus protocol that achieves deterministic finality in under one second without requiring validators to vote in synchronised rounds. Lachesis can tolerate up to one-third of validators being malicious or offline while maintaining liveness and safety.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(139,92,246,0.1);">💰</div>
+          <div class="sonic-card__title">FeeM (Fee Monetization)</div>
+          <div class="sonic-card__desc">A protocol-level mechanism that rebates up to 90% of the gas fees generated by a smart contract back to the contract's developer. Registered developers earn passive income from every transaction their users make — aligning developer incentives with network usage and growth.</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="info-box__title">📖 Learn More</div>
+        <p style="margin:0;">Read the full technical breakdown of SonicVM, SonicDB, Lachesis aBFT, and FeeM in the <a href="documentation.html">Documentation</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Network at a Glance -->
+  <section class="sonic-section" id="network">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Network</span>
+        <h2 class="sonic-section__title">Network at a Glance</h2>
+        <p class="sonic-section__subtitle">Key parameters for both the Sonic mainnet and the Blaze testnet.</p>
+      </div>
+
+      <div class="grid-2" style="margin:2rem 0;">
+        <div>
+          <h3 style="margin-bottom:1rem;">🌐 Mainnet (Chain ID 146)</h3>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-item__label">Network Name</div>
+              <div class="spec-item__value">Sonic Mainnet</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Chain ID</div>
+              <div class="spec-item__value spec-item__value--blue">146</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Native Token</div>
+              <div class="spec-item__value spec-item__value--orange">S</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">RPC URL</div>
+              <div class="spec-item__value" style="font-size:.78rem;">rpc.soniclabs.com</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Block Explorer</div>
+              <div class="spec-item__value" style="font-size:.78rem;">sonicscan.org</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Finality</div>
+              <div class="spec-item__value">&lt;1 second</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="mainnet.html" class="btn btn-primary">Mainnet Guide</a>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:1rem;">🧪 Blaze Testnet (Chain ID 64165)</h3>
+          <div class="spec-grid">
+            <div class="spec-item">
+              <div class="spec-item__label">Network Name</div>
+              <div class="spec-item__value">Sonic Blaze Testnet</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Chain ID</div>
+              <div class="spec-item__value spec-item__value--blue">64165</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Native Token</div>
+              <div class="spec-item__value spec-item__value--orange">S</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">RPC URL</div>
+              <div class="spec-item__value" style="font-size:.78rem;">rpc.blaze.soniclabs.com</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Block Explorer</div>
+              <div class="spec-item__value" style="font-size:.78rem;">testnet.sonicscan.org</div>
+            </div>
+            <div class="spec-item">
+              <div class="spec-item__label">Test Tokens</div>
+              <div class="spec-item__value">Free Faucet</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="testnet.html" class="btn btn-outline">Testnet Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Getting Started -->
+  <section class="sonic-section" id="getting-started">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Quick Start</span>
+        <h2 class="sonic-section__title">Start Building on Sonic</h2>
+        <p class="sonic-section__subtitle">From zero to deployed smart contract in minutes — using the same tools you already know from Ethereum.</p>
+      </div>
+
+      <ol class="step-list">
+        <li>
+          <div class="step-content">
+            <h4>Add Sonic to your wallet</h4>
+            <p>Open MetaMask → Add network → Add manually. Enter: Network Name <code>Sonic Mainnet</code>, RPC URL <code>https://rpc.soniclabs.com</code>, Chain ID <code>146</code>, Symbol <code>S</code>. For development, add Blaze testnet on Chain ID <code>64165</code> first.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Get test tokens from the faucet</h4>
+            <p>Visit <a href="https://faucet.soniclabs.com" target="_blank" rel="noopener">faucet.soniclabs.com</a>, connect your wallet, and request free test S tokens for the Blaze testnet. Tokens arrive within seconds and are sufficient for extensive contract testing.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Configure Hardhat or Foundry</h4>
+            <p>Add Sonic networks to your project config. In Hardhat, add <code>sonicBlaze</code> and <code>sonic</code> networks pointing to the respective RPC URLs. In Foundry, create a <code>[rpc_endpoints]</code> entry in <code>foundry.toml</code>. No other changes are needed — all your existing tasks and scripts work as-is.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Deploy and verify</h4>
+            <p>Run <code>forge script --rpc-url sonicBlaze --broadcast --verify</code> or <code>npx hardhat deploy --network sonicBlaze</code>. Verify your contract on <a href="https://testnet.sonicscan.org" target="_blank" rel="noopener">testnet.sonicscan.org</a> and explore the transaction explorer to inspect your deployment.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Register for FeeM</h4>
+            <p>Once deployed on mainnet, register your contract for Fee Monetization to earn up to 90% of gas fees your users pay. Registration is fully on-chain and permissionless. See the <a href="documentation.html#feem">FeeM documentation</a> for details.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="info-box info-box--green">
+        <div class="info-box__title">✅ Ready to go deeper?</div>
+        <p style="margin:0;">The full <a href="documentation.html">Documentation</a> covers SonicVM internals, SonicDB architecture, Lachesis aBFT consensus, FeeM mechanics, API reference, and more. The <a href="development-tools.html">Development Tools</a> page lists every SDK, framework, wallet, and infrastructure provider that supports Sonic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Explore the Site -->
+  <section class="sonic-section" id="explore">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Explore</span>
+        <h2 class="sonic-section__title">Everything You Need</h2>
+        <p class="sonic-section__subtitle">All the resources to build, deploy, and operate on Sonic L1 — from documentation to block explorer to node operations.</p>
+      </div>
+
+      <div class="grid-3" style="margin:2rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">📄</div>
+          <div class="sonic-card__title"><a href="documentation.html" style="color:inherit;text-decoration:none;">Documentation</a></div>
+          <div class="sonic-card__desc">Architecture deep-dives, API reference, FeeM mechanics, SonicVM and SonicDB internals, and a developer quick-start guide.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🔍</div>
+          <div class="sonic-card__title"><a href="explorer.html" style="color:inherit;text-decoration:none;">Block Explorer</a></div>
+          <div class="sonic-card__desc">Browse live transactions, inspect contract source code and ABIs, monitor validator activity, and track network statistics.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🛠️</div>
+          <div class="sonic-card__title"><a href="development-tools.html" style="color:inherit;text-decoration:none;">Development Tools</a></div>
+          <div class="sonic-card__desc">The complete Sonic developer toolkit: Hardhat, Foundry, Ethers.js, Viem, Wagmi, thirdweb, Chainlist, and every supported RPC provider.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(139,92,246,0.1);">🧪</div>
+          <div class="sonic-card__title"><a href="testnet.html" style="color:inherit;text-decoration:none;">Blaze Testnet</a></div>
+          <div class="sonic-card__desc">Build and test on the Sonic Blaze testnet with Chain ID 64165. Full protocol parity with mainnet, free faucet tokens, and a dedicated block explorer.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon">🌐</div>
+          <div class="sonic-card__title"><a href="mainnet.html" style="color:inherit;text-decoration:none;">Mainnet</a></div>
+          <div class="sonic-card__desc">Network parameters, deployment checklist, FeeM registration guide, and an overview of the growing DeFi ecosystem on Sonic mainnet.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🖥️</div>
+          <div class="sonic-card__title"><a href="node.html" style="color:inherit;text-decoration:none;">Run a Node</a></div>
+          <div class="sonic-card__desc">Hardware requirements, installation guide, validator setup, and monitoring best practices for running a Sonic node or validator.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sonic-footer">
+  <div class="sonic-footer__grid">
+    <div class="sonic-footer__brand">
+      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
+      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        <span class="badge badge-blue">Chain ID: 146</span>
+        <span class="badge badge-orange">400K TPS</span>
+        <span class="badge badge-green">EVM Compatible</span>
+      </div>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="mainnet.html">Mainnet</a></li>
+        <li><a href="testnet.html">Blaze Testnet</a></li>
+        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="node.html">Run a Node</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Developers</h4>
+      <ul>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="development-tools.html">Dev Tools</a></li>
+        <li><a href="testnet.html">Testnet Faucet</a></li>
+        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
+        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sonic-footer__bottom">
+    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
+    <div class="sonic-footer__chips">
+      <span class="sonic-footer__chip">Mainnet: 146</span>
+      <span class="sonic-footer__chip">Testnet: 64165</span>
+      <span class="sonic-footer__chip">TPS: 400K</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if(btn && links){
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>

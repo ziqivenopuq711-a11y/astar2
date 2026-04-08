@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blaze Testnet — Sonic L1</title>
+  <meta name="description" content="Sonic Blaze Testnet guide: connect to Chain ID 64165, obtain test S tokens, deploy and test smart contracts before mainnet launch.">
+  <link rel="stylesheet" href="1de98341b7e33ab1.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sonic-page">
+
+<nav class="sonic-nav" aria-label="Main navigation">
+  <div class="sonic-nav__inner">
+    <a href="index.html" class="sonic-nav__logo">
+      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
+      Sonic L1
+    </a>
+    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <ul class="sonic-nav__links" id="navLinks" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="explorer.html">Explorer</a></li>
+      <li><a href="development-tools.html">Development Tools</a></li>
+      <li><a href="testnet.html" class="active">Testnet</a></li>
+      <li><a href="mainnet.html">Mainnet</a></li>
+      <li><a href="node.html">Node</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="sonic-main">
+
+  <!-- Hero -->
+  <section class="sonic-hero">
+    <div class="sonic-hero__inner">
+      <div class="sonic-hero__badge">🧪 Blaze Testnet</div>
+      <h1 class="sonic-hero__title">Sonic <span class="highlight">Blaze Testnet</span></h1>
+      <p class="sonic-hero__desc">A fully functional testing environment that mirrors Sonic mainnet capabilities. Build, test, and iterate with confidence before deploying to production — with zero real-money risk.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="#connecting" class="btn btn-primary">Connect to Blaze</a>
+        <a href="#testing" class="btn btn-outline">Testing Guide</a>
+      </div>
+      <div class="sonic-hero__stats">
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">64165</span>
+          <span class="sonic-hero__stat-label">Chain ID</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">Free</span>
+          <span class="sonic-hero__stat-label">Test Tokens</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">&lt;1s</span>
+          <span class="sonic-hero__stat-label">Block Time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Blaze Testnet Overview -->
+  <section class="sonic-section" id="overview">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Overview</span>
+        <h2 class="sonic-section__title">Blaze Testnet Overview</h2>
+        <p class="sonic-section__subtitle">Sonic's Blaze testnet provides a production-equivalent environment for testing smart contracts, integrations, and front-end applications.</p>
+      </div>
+
+      <p>The Blaze testnet (Chain ID: 64165) is Sonic's primary developer testing network. Unlike many testnets that run simplified or downgraded versions of the mainnet protocol, Blaze mirrors Sonic mainnet's full technical capabilities: the same SonicVM execution engine, the same SonicDB state storage architecture, the same Lachesis aBFT consensus mechanism, and the same JSON-RPC API surface. What works on Blaze will work on mainnet — and what fails on Blaze will fail on mainnet, making Blaze an accurate predictor of production behavior.</p>
+
+      <p>Blaze testnet is designed to accommodate all types of development workflows. Solo developers can iterate quickly using free test S tokens from the faucet, deploying new contract versions as frequently as needed without cost concern. Teams can run end-to-end integration tests against a live network with realistic block times and finality behavior that local development environments cannot replicate. Protocols conducting security audits can point their auditors at Blaze deployments to test attack vectors in a realistic network environment.</p>
+
+      <div class="grid-3" style="margin:2rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">🔄</div>
+          <div class="sonic-card__title">Full Protocol Parity</div>
+          <div class="sonic-card__desc">Blaze runs the identical Sonic client software as mainnet. SonicVM super instruction optimizations, SonicDB storage efficiency, and Lachesis aBFT consensus all operate the same way on Blaze, giving you a true preview of mainnet behavior.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🚰</div>
+          <div class="sonic-card__title">Free Faucet Tokens</div>
+          <div class="sonic-card__desc">The Sonic Blaze faucet distributes free test S tokens to developer wallets on request. Tokens are dispensed in amounts sufficient for extensive testing — multiple contract deployments, thousands of test transactions, and full integration test suites.</div>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🔍</div>
+          <div class="sonic-card__title">Testnet Explorer</div>
+          <div class="sonic-card__desc">The Blaze testnet has its own block explorer with the same features as the mainnet explorer. Verify contracts, inspect transactions, view event logs, and monitor network statistics — all in the testnet context without mainnet noise.</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <div class="info-box__title">⚠️ Testnet Disclaimer</div>
+        <p style="margin:0;">Test S tokens on Blaze have no real-world monetary value and cannot be transferred to or from mainnet. The testnet may occasionally be reset or upgraded independently of mainnet. Always retest your application on Blaze after each testnet upgrade before deploying new versions to mainnet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Connecting to Blaze -->
+  <section class="sonic-section" id="connecting">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Setup</span>
+        <h2 class="sonic-section__title">Connecting to Blaze</h2>
+        <p class="sonic-section__subtitle">Add the Blaze testnet to your wallet and development tools in minutes.</p>
+      </div>
+
+      <h3>Network Parameters</h3>
+      <div class="spec-grid" style="margin-bottom:1.5rem;">
+        <div class="spec-item">
+          <div class="spec-item__label">Network Name</div>
+          <div class="spec-item__value">Sonic Blaze Testnet</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Chain ID</div>
+          <div class="spec-item__value spec-item__value--blue">64165</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Native Token Symbol</div>
+          <div class="spec-item__value spec-item__value--orange">S</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">RPC URL (HTTP)</div>
+          <div class="spec-item__value" style="font-size:.78rem;">rpc.blaze.soniclabs.com</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">RPC URL (WSS)</div>
+          <div class="spec-item__value" style="font-size:.78rem;">wss://rpc.blaze.soniclabs.com</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Block Explorer</div>
+          <div class="spec-item__value" style="font-size:.78rem;">testnet.sonicscan.org</div>
+        </div>
+      </div>
+
+      <h3>Adding Blaze to MetaMask</h3>
+      <ol class="step-list">
+        <li>
+          <div class="step-content">
+            <h4>Open MetaMask Network Settings</h4>
+            <p>Click the network selector at the top of MetaMask (it may say "Ethereum Mainnet"). Select "Add network" at the bottom of the dropdown list.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Choose "Add a network manually"</h4>
+            <p>Click "Add a network manually" at the bottom of the network list to open the manual configuration form.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Enter Blaze network details</h4>
+            <p>Fill in: Network Name → <code>Sonic Blaze Testnet</code>, RPC URL → <code>https://rpc.blaze.soniclabs.com</code>, Chain ID → <code>64165</code>, Currency Symbol → <code>S</code>, Block Explorer URL → <code>https://testnet.sonicscan.org</code>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Save and switch</h4>
+            <p>Click "Save". MetaMask will validate the RPC endpoint and switch to Sonic Blaze Testnet. Your S balance will initially show 0 — use the faucet to obtain test tokens.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-content">
+            <h4>Get test S tokens</h4>
+            <p>Visit <a href="https://faucet.soniclabs.com" target="_blank" rel="noopener">faucet.soniclabs.com</a>, connect your wallet or enter your address, and request test tokens. Tokens are sent within seconds.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Section 3: Testing & Debugging -->
+  <section class="sonic-section" id="testing">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Testing</span>
+        <h2 class="sonic-section__title">Testing &amp; Debugging on Blaze</h2>
+        <p class="sonic-section__subtitle">Best practices for smart contract testing on the Sonic Blaze testnet — from unit tests to full integration test suites.</p>
+      </div>
+
+      <p>Effective testing on Blaze involves a layered approach. The first layer is unit testing with a local Hardhat or Foundry network — fast, isolated tests that run entirely in-process and provide instant feedback during development. The second layer is integration testing against Blaze, where your contracts interact with a real network that has realistic block times, mempool behavior, and finality characteristics. This two-layer approach catches different classes of bugs: unit tests find logic errors, while Blaze integration tests find timing, gas, and interaction issues that only manifest in a live network context.</p>
+
+      <h3>Hardhat Testing Against Blaze</h3>
+      <pre><code>// test/MyContract.blaze.test.js
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
+
+// Run with: npx hardhat test --network sonicBlaze
+describe("MyContract (Blaze integration)", function () {
+  this.timeout(30000); // Allow time for network round-trips
+
+  let contract;
+
+  before(async function () {
+    const [deployer] = await ethers.getSigners();
+    const MyContract = await ethers.getContractFactory("MyContract");
+    contract = await MyContract.deploy();
+    await contract.waitForDeployment();
+    console.log("Deployed to:", await contract.getAddress());
+  });
+
+  it("should process transactions with finality", async function () {
+    const tx = await contract.myFunction(42);
+    const receipt = await tx.wait(1); // Wait for 1 confirmation
+    // On Sonic, this completes in under 1 second
+    expect(receipt.status).to.equal(1);
+  });
+});</code></pre>
+
+      <h3>Gas Estimation and Optimization</h3>
+      <p>Blaze uses the same gas pricing model as Sonic mainnet, making it an accurate environment for gas estimation. Run <code>eth_estimateGas</code> on Blaze to get reliable gas usage figures for your transactions, then use these to set appropriate gas limits in your deployment scripts and front-end applications. Sonic's SonicVM typically executes common EVM operations more efficiently than the reference Ethereum implementation, so gas usage on Sonic is often lower than on Ethereum for the same bytecode.</p>
+
+      <h3>Debugging Failed Transactions</h3>
+      <p>When a transaction reverts on Blaze, the testnet explorer displays the revert reason if the contract uses custom error types or <code>require(condition, "reason string")</code>. For more detailed debugging, use <code>eth_call</code> with the same transaction data to simulate the execution and obtain the full revert trace. Hardhat's <code>--verbose</code> flag and Foundry's <code>forge test -vvvv</code> verbosity levels provide stack traces that identify the exact line causing the revert in your Solidity source.</p>
+
+      <p>Blaze mirrors SonicVM's super instruction behavior, which means that performance characteristics you observe on Blaze accurately predict mainnet performance. If your contract runs efficiently on Blaze — processing complex operations within a single block, emitting the expected events, and consuming predictable amounts of gas — it will perform identically on mainnet under the same conditions.</p>
+
+      <div class="info-box info-box--green">
+        <div class="info-box__title">✅ Testing Checklist</div>
+        <p style="margin:0;">Before deploying to mainnet: ✓ All unit tests pass locally ✓ Integration tests pass on Blaze ✓ Contract verified on Blaze explorer ✓ Gas estimates within acceptable range ✓ Edge cases tested (zero values, max values, unauthorized callers) ✓ Upgrade/migration path tested (if applicable) ✓ FeeM registration tested on Blaze</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sonic-footer">
+  <div class="sonic-footer__grid">
+    <div class="sonic-footer__brand">
+      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
+      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        <span class="badge badge-blue">Chain ID: 146</span>
+        <span class="badge badge-orange">400K TPS</span>
+        <span class="badge badge-green">EVM Compatible</span>
+      </div>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="mainnet.html">Mainnet</a></li>
+        <li><a href="testnet.html">Blaze Testnet</a></li>
+        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="node.html">Run a Node</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Developers</h4>
+      <ul>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="development-tools.html">Dev Tools</a></li>
+        <li><a href="testnet.html">Testnet Faucet</a></li>
+        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
+        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sonic-footer__bottom">
+    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
+    <div class="sonic-footer__chips">
+      <span class="sonic-footer__chip">Mainnet: 146</span>
+      <span class="sonic-footer__chip">Testnet: 64165</span>
+      <span class="sonic-footer__chip">TPS: 400K</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if(btn && links){
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>

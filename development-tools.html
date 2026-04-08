@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Development Tools &amp; SDKs — Sonic L1</title>
+  <meta name="description" content="Complete guide to Sonic L1 development tools: ethers.js, Hardhat, Foundry, JSON-RPC API, developer resources, and the Innovator Fund.">
+  <link rel="stylesheet" href="1de98341b7e33ab1.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sonic-page">
+
+<nav class="sonic-nav" aria-label="Main navigation">
+  <div class="sonic-nav__inner">
+    <a href="index.html" class="sonic-nav__logo">
+      <div class="sonic-nav__logo-icon" aria-hidden="true">⚡</div>
+      Sonic L1
+    </a>
+    <button class="sonic-nav__hamburger" id="navToggle" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <ul class="sonic-nav__links" id="navLinks" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="documentation.html">Documentation</a></li>
+      <li><a href="explorer.html">Explorer</a></li>
+      <li><a href="development-tools.html" class="active">Development Tools</a></li>
+      <li><a href="testnet.html">Testnet</a></li>
+      <li><a href="mainnet.html">Mainnet</a></li>
+      <li><a href="node.html">Node</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="sonic-main">
+
+  <!-- Hero -->
+  <section class="sonic-hero">
+    <div class="sonic-hero__inner">
+      <div class="sonic-hero__badge">🛠️ Development Tools</div>
+      <h1 class="sonic-hero__title">Build on Sonic with <span class="highlight">Familiar Tools</span></h1>
+      <p class="sonic-hero__desc">Full EVM compatibility means every Ethereum development tool works on Sonic out of the box. ethers.js, Hardhat, Foundry, Remix — use what you already know.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="#sdk" class="btn btn-primary">Explore SDKs</a>
+        <a href="#api" class="btn btn-outline">JSON-RPC API</a>
+      </div>
+      <div class="sonic-hero__stats">
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">100%</span>
+          <span class="sonic-hero__stat-label">EVM Compatible</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">200M</span>
+          <span class="sonic-hero__stat-label">S Innovator Fund</span>
+        </div>
+        <div class="sonic-hero__stat">
+          <span class="sonic-hero__stat-value">0</span>
+          <span class="sonic-hero__stat-label">Code Changes Needed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: SDK & Libraries -->
+  <section class="sonic-section" id="sdk">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Libraries</span>
+        <h2 class="sonic-section__title">Sonic SDK &amp; Libraries</h2>
+        <p class="sonic-section__subtitle">All major Ethereum libraries are fully compatible with Sonic. No custom forks, no special adapters — just point to the Sonic RPC and start building.</p>
+      </div>
+
+      <p>Sonic's full EVM compatibility is not limited to smart contract execution — it extends to every layer of the developer stack. The JSON-RPC API exposed by Sonic nodes is fully compliant with the Ethereum JSON-RPC specification, which means every library, SDK, and tool that speaks Ethereum JSON-RPC works with Sonic identically. You don't need a Sonic-specific SDK because the entire Ethereum ecosystem is already your Sonic SDK.</p>
+
+      <div class="grid-2" style="margin:1.5rem 0;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon">🔷</div>
+          <div class="sonic-card__title">ethers.js v6</div>
+          <div class="sonic-card__desc">The most widely-used Ethereum JavaScript library. Connect to Sonic by passing the Sonic RPC URL to JsonRpcProvider. All ethers.js features — contract deployment, event listening, ENS resolution, multicall — work without modification on Chain ID 146.</div>
+          <pre style="margin-top:.75rem;font-size:.78rem;padding:.75rem;"><code>import { ethers } from "ethers";
+const p = new ethers.JsonRpcProvider(
+  "https://rpc.soniclabs.com"
+);</code></pre>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">🌐</div>
+          <div class="sonic-card__title">web3.js v4</div>
+          <div class="sonic-card__desc">The original Ethereum JavaScript library remains fully supported on Sonic. Create a Web3 instance with the Sonic HTTP or WebSocket endpoint to access all standard eth, net, and personal modules with sub-second response times.</div>
+          <pre style="margin-top:.75rem;font-size:.78rem;padding:.75rem;"><code>import Web3 from "web3";
+const web3 = new Web3(
+  "https://rpc.soniclabs.com"
+);</code></pre>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(139,92,246,0.1);">⚡</div>
+          <div class="sonic-card__title">viem</div>
+          <div class="sonic-card__desc">The modern, type-safe Ethereum library with an excellent developer experience. Define a Sonic chain configuration and use viem's public client to interact with the network. Full TypeScript types, tree-shaking, and minimal bundle size.</div>
+          <pre style="margin-top:.75rem;font-size:.78rem;padding:.75rem;"><code>import { createPublicClient, http }
+  from "viem";
+const client = createPublicClient({
+  transport: http("https://rpc.soniclabs.com")
+});</code></pre>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🐍</div>
+          <div class="sonic-card__title">web3.py</div>
+          <div class="sonic-card__desc">Python developers can use web3.py to interact with Sonic. The library's HTTPProvider and WebsocketProvider connect to Sonic endpoints seamlessly. Popular in backend services, data pipelines, and bot development for DeFi protocols.</div>
+          <pre style="margin-top:.75rem;font-size:.78rem;padding:.75rem;"><code>from web3 import Web3
+w3 = Web3(Web3.HTTPProvider(
+  "https://rpc.soniclabs.com"
+))</code></pre>
+        </div>
+      </div>
+
+      <p>Beyond these core libraries, Sonic is compatible with the full spectrum of Ethereum ecosystem tooling: OpenZeppelin contract libraries (ERC-20, ERC-721, ERC-1155, access control, upgradeable proxies), Uniswap v2/v3 factory deployments, Chainlink oracle integrations, Safe multisig deployments, and The Graph subgraph indexing. Any protocol or infrastructure that supports EVM-compatible chains can be configured to use Sonic with a simple RPC endpoint change.</p>
+    </div>
+  </section>
+
+  <!-- Section 2: Smart Contract Tooling -->
+  <section class="sonic-section" id="tooling">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Tooling</span>
+        <h2 class="sonic-section__title">Smart Contract Tooling</h2>
+        <p class="sonic-section__subtitle">Configure your preferred development framework to target Sonic mainnet and Blaze testnet with just a few lines of config.</p>
+      </div>
+
+      <h3>Hardhat Configuration</h3>
+      <p>Add Sonic networks to your <code>hardhat.config.js</code> file. Sonic supports all standard Hardhat features including compilation, testing with Hardhat Network forking, deployment scripts, and the hardhat-etherscan verification plugin.</p>
+      <pre><code>// hardhat.config.js
+require("@nomicfoundation/hardhat-toolbox");
+
+module.exports = {
+  solidity: "0.8.24",
+  networks: {
+    sonic: {
+      url: "https://rpc.soniclabs.com",
+      chainId: 146,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+    sonicBlaze: {
+      url: "https://rpc.blaze.soniclabs.com",
+      chainId: 64165,
+      accounts: [process.env.PRIVATE_KEY],
+    },
+  },
+  etherscan: {
+    apiKey: {
+      sonic: process.env.SONICSCAN_API_KEY,
+    },
+    customChains: [{
+      network: "sonic",
+      chainId: 146,
+      urls: {
+        apiURL: "https://api.sonicscan.org/api",
+        browserURL: "https://sonicscan.org",
+      },
+    }],
+  },
+};</code></pre>
+
+      <h3>Foundry Configuration</h3>
+      <p>Foundry's <code>foundry.toml</code> can be configured with Sonic RPC endpoints for both deployment and testing. Use <code>forge script</code> with the <code>--rpc-url sonic</code> flag after configuring the alias below.</p>
+      <pre><code># foundry.toml
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+
+[rpc_endpoints]
+sonic = "https://rpc.soniclabs.com"
+sonic_blaze = "https://rpc.blaze.soniclabs.com"
+
+[etherscan]
+sonic = { key = "${SONICSCAN_API_KEY}", url = "https://api.sonicscan.org/api" }
+
+# Deploy command:
+# forge script script/Deploy.s.sol --rpc-url sonic --broadcast --verify</code></pre>
+
+      <h3>Remix IDE</h3>
+      <p>Remix IDE works with Sonic directly through the "Injected Provider" option (MetaMask connected to Sonic mainnet or Blaze testnet) or by using the "External HTTP Provider" option with the Sonic RPC URL. The Remix Sonic plugin (available in the plugin manager) provides one-click deployment and verification for developers who prefer a browser-based IDE without local toolchain setup.</p>
+    </div>
+  </section>
+
+  <!-- Section 3: JSON-RPC API -->
+  <section class="sonic-section" id="api">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">API Reference</span>
+        <h2 class="sonic-section__title">API Endpoints &amp; JSON-RPC</h2>
+        <p class="sonic-section__subtitle">Sonic exposes the full Ethereum JSON-RPC API over both HTTP and WebSocket, enabling any standard Ethereum client to interact with the network.</p>
+      </div>
+
+      <div class="spec-grid" style="margin-bottom:1.5rem;">
+        <div class="spec-item">
+          <div class="spec-item__label">Mainnet HTTP RPC</div>
+          <div class="spec-item__value" style="font-size:.8rem;">rpc.soniclabs.com</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Mainnet WSS RPC</div>
+          <div class="spec-item__value" style="font-size:.8rem;">wss://rpc.soniclabs.com/ws</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Testnet HTTP RPC</div>
+          <div class="spec-item__value" style="font-size:.8rem;">rpc.blaze.soniclabs.com</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-item__label">Testnet WSS RPC</div>
+          <div class="spec-item__value" style="font-size:.8rem;">wss://rpc.blaze.soniclabs.com</div>
+        </div>
+      </div>
+
+      <h3>Supported JSON-RPC Methods</h3>
+      <table class="sonic-table">
+        <thead>
+          <tr><th>Method</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>eth_blockNumber</code></td><td>Returns the current latest block number</td></tr>
+          <tr><td><code>eth_getBalance</code></td><td>Returns the S token balance of a given address</td></tr>
+          <tr><td><code>eth_sendRawTransaction</code></td><td>Submits a signed transaction to the network</td></tr>
+          <tr><td><code>eth_call</code></td><td>Executes a read-only contract call without creating a transaction</td></tr>
+          <tr><td><code>eth_estimateGas</code></td><td>Estimates the gas cost of a transaction</td></tr>
+          <tr><td><code>eth_getTransactionReceipt</code></td><td>Returns the receipt for a given transaction hash</td></tr>
+          <tr><td><code>eth_getLogs</code></td><td>Returns logs matching a filter (address, topics, block range)</td></tr>
+          <tr><td><code>eth_subscribe</code></td><td>WebSocket: subscribe to new blocks, pending transactions, or log events</td></tr>
+          <tr><td><code>eth_getCode</code></td><td>Returns the bytecode of a deployed contract</td></tr>
+          <tr><td><code>eth_chainId</code></td><td>Returns Chain ID 0x92 (146 decimal) for mainnet</td></tr>
+        </tbody>
+      </table>
+
+      <h3>WebSocket Subscriptions</h3>
+      <pre><code>// Subscribe to new block headers via WebSocket
+const ws = new WebSocket("wss://rpc.soniclabs.com/ws");
+
+ws.onopen = () => {
+  ws.send(JSON.stringify({
+    jsonrpc: "2.0",
+    id: 1,
+    method: "eth_subscribe",
+    params: ["newHeads"]
+  }));
+};
+
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  if (data.method === "eth_subscription") {
+    console.log("New block:", data.params.result.number);
+  }
+};</code></pre>
+      <p>WebSocket connections to Sonic's RPC nodes provide real-time event streaming. Because Sonic produces blocks in under one second, WebSocket subscriptions for <code>newHeads</code> deliver block events at a pace that would be impractical to poll via HTTP. Use WebSocket subscriptions for live dashboards, trading bots, and any application that requires immediate reaction to on-chain events.</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Developer Resources -->
+  <section class="sonic-section" id="resources">
+    <div class="sonic-container">
+      <div class="sonic-section__header">
+        <span class="sonic-section__tag">Resources</span>
+        <h2 class="sonic-section__title">Developer Resources</h2>
+        <p class="sonic-section__subtitle">Everything you need to go from idea to production on Sonic — faucets, grants, community, and official documentation.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:2rem;">
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(255,107,53,0.1);">💰</div>
+          <div class="sonic-card__title">Sonic Innovator Fund</div>
+          <div class="sonic-card__desc">The Sonic Innovator Fund allocates 200 million S tokens to support builders creating innovative applications on Sonic. Grants are available for DeFi protocols, developer tooling, infrastructure projects, and community initiatives. Applications are reviewed on a rolling basis by the Sonic Foundation.</div>
+          <a href="https://sonic.ooo/innovators" target="_blank" rel="noopener" class="btn btn-orange" style="margin-top:1rem;font-size:.82rem;padding:.5rem 1rem;">Apply for Grant ↗</a>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(16,185,129,0.1);">🚰</div>
+          <div class="sonic-card__title">Blaze Testnet Faucet</div>
+          <div class="sonic-card__desc">Obtain free test S tokens for development on the Blaze testnet (Chain ID 64165). The faucet provides enough tokens for extensive testing including contract deployments, gas estimation experiments, and end-to-end integration tests. Test tokens have no real-world value.</div>
+          <a href="testnet.html" class="btn btn-outline" style="margin-top:1rem;font-size:.82rem;padding:.5rem 1rem;">Get Test Tokens →</a>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon" style="background:rgba(139,92,246,0.1);">📖</div>
+          <div class="sonic-card__title">Official Documentation</div>
+          <div class="sonic-card__desc">Comprehensive developer documentation covering architecture, API references, contract deployment guides, node operation, validator setup, and governance participation. The docs are community-maintained and updated with each network upgrade. Contributions via GitHub pull request are welcome.</div>
+          <a href="documentation.html" class="btn btn-outline" style="margin-top:1rem;font-size:.82rem;padding:.5rem 1rem;">Read Docs →</a>
+        </div>
+        <div class="sonic-card">
+          <div class="sonic-card__icon">💬</div>
+          <div class="sonic-card__title">Community Channels</div>
+          <div class="sonic-card__desc">Join the Sonic developer community on Discord for technical support, protocol discussions, hackathon announcements, and FeeM guidance. The Telegram group offers quick Q&amp;A. Follow @0xSonicLabs on Twitter/X for network upgrades, new tooling releases, and ecosystem announcements.</div>
+          <div style="display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap;">
+            <a href="https://discord.gg/sonic" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem;padding:.5rem .875rem;">Discord</a>
+            <a href="https://t.me/sonicl1" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem;padding:.5rem .875rem;">Telegram</a>
+            <a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:.82rem;padding:.5rem .875rem;">X / Twitter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box info-box--green">
+        <div class="info-box__title">🎯 FeeM Registration</div>
+        <p style="margin:0;">Once your contract is deployed to Sonic mainnet, register for FeeM (Fee Monetization) to earn up to 90% of the transaction fees generated by your dApp. Registration is permissionless, takes less than five minutes, and begins paying rebates on the next qualifying transaction. Visit the <a href="documentation.html#feem">FeeM documentation</a> for step-by-step registration instructions.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sonic-footer">
+  <div class="sonic-footer__grid">
+    <div class="sonic-footer__brand">
+      <h3><span style="background:linear-gradient(135deg,#3B82F6,#FF6B35);border-radius:6px;padding:2px 7px;font-size:.9rem;" aria-hidden="true">⚡</span> Sonic L1</h3>
+      <p>The highest-performing EVM Layer-1 blockchain. 400,000 TPS, sub-second finality, and full Ethereum compatibility — evolved from Fantom.</p>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        <span class="badge badge-blue">Chain ID: 146</span>
+        <span class="badge badge-orange">400K TPS</span>
+        <span class="badge badge-green">EVM Compatible</span>
+      </div>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Network</h4>
+      <ul>
+        <li><a href="mainnet.html">Mainnet</a></li>
+        <li><a href="testnet.html">Blaze Testnet</a></li>
+        <li><a href="explorer.html">Block Explorer</a></li>
+        <li><a href="node.html">Run a Node</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Developers</h4>
+      <ul>
+        <li><a href="documentation.html">Documentation</a></li>
+        <li><a href="development-tools.html">Dev Tools</a></li>
+        <li><a href="testnet.html">Testnet Faucet</a></li>
+        <li><a href="documentation.html#getting-started">Quick Start</a></li>
+      </ul>
+    </div>
+    <div class="sonic-footer__col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://sonic.ooo" target="_blank" rel="noopener">sonic.ooo</a></li>
+        <li><a href="https://github.com/Fantom-foundation" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://discord.gg/sonic" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://twitter.com/0xSonicLabs" target="_blank" rel="noopener">Twitter / X</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sonic-footer__bottom">
+    <p>© 2025 Sonic L1. Built for developers, powered by Lachesis aBFT.</p>
+    <div class="sonic-footer__chips">
+      <span class="sonic-footer__chip">Mainnet: 146</span>
+      <span class="sonic-footer__chip">Testnet: 64165</span>
+      <span class="sonic-footer__chip">TPS: 400K</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if(btn && links){
+      btn.addEventListener('click', function(){
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  })();
+</script>
+</body>
+</html>
